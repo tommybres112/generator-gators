@@ -1,0 +1,258 @@
+---
+import Layout from '../layouts/Layout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQSection from '../components/FAQSection.astro';
+
+const phone = '555-555-5555';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Whole Home Generator Installation',
+  serviceType: 'Standby Generator Installation',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'Generator Gators',
+    url: 'https://www.generatorgators.com',
+    telephone: '555-555-5555',
+  },
+  areaServed: ['Brooklyn', 'Queens', 'Nassau County', 'Suffolk County', 'New York City'],
+  description: 'Generator Gators connects Long Island and NYC homeowners with vetted, licensed whole home standby generator installation partners.',
+  offers: {
+    '@type': 'Offer',
+    description: 'Free whole home generator installation quote',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+};
+
+const installationSteps = [
+  {
+    title: 'Site Assessment & Permit Applications',
+    desc: 'Your installer visits your home to assess the best generator placement, evaluate your electrical panel, and determine gas line requirements. Permits are applied for with your local municipality and utility company.',
+  },
+  {
+    title: 'Generator Placement & Pad Installation',
+    desc: 'A concrete pad or composite pad is installed to provide a level, stable base for the generator unit. The generator is then positioned and secured according to manufacturer and code requirements.',
+  },
+  {
+    title: 'Gas Line Connection',
+    desc: 'A dedicated gas line is run from your meter to the generator. For propane systems, a propane tank is installed on your property. All connections are pressure-tested and inspected.',
+  },
+  {
+    title: 'Automatic Transfer Switch (ATS) Installation',
+    desc: 'An ATS is installed at your electrical panel. This device monitors utility power and automatically transfers your home to generator power within seconds of an outage — and back again when utility power is restored.',
+  },
+  {
+    title: 'Electrical Wiring & Load Balancing',
+    desc: 'The generator is wired to your electrical panel. For whole-home systems, all circuits are connected. The installer balances electrical loads and ensures everything operates within safe parameters.',
+  },
+  {
+    title: 'Testing, Inspection & Walkthrough',
+    desc: 'The system is thoroughly tested, inspections are completed, and your installer walks you through generator operation, maintenance schedules, and the weekly self-test cycle.',
+  },
+];
+---
+
+<Layout
+  title="Whole Home Generator Installation | Generator Gators — Long Island & NYC"
+  description="Learn everything about whole home standby generator installation. Generator Gators connects Long Island and NYC homeowners with vetted local installation partners. Free quotes."
+  schema={schema}
+>
+
+  <!-- PAGE HERO -->
+  <section class="bg-gradient-to-br from-green-900 to-green-800 text-white py-14 px-4">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-400/40 text-yellow-300 text-sm font-semibold px-3 py-1.5 rounded-full mb-5">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+        </svg>
+        Complete Backup Power Solutions
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-5">Whole Home Generator Installation</h1>
+      <p class="text-lg md:text-xl text-green-100 max-w-3xl mx-auto mb-8">
+        Generator Gators connects Long Island and NYC homeowners with vetted, licensed standby generator installers. Stop worrying about power outages — get matched with a trusted local professional today.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="#quote-form"
+          class="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg"
+        >
+          Get Generator Quote
+        </a>
+        <a
+          href={`tel:${phone.replace(/-/g, '')}`}
+          class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS A STANDBY GENERATOR -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-5">What Is a Whole Home Standby Generator?</h2>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            A whole home standby generator is a permanently installed backup power system connected to your home's natural gas or propane supply and electrical panel. When utility power fails — whether from a storm, grid failure, or any other cause — the generator automatically starts within seconds and powers your entire home.
+          </p>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            Unlike portable generators, standby units require no manual startup, no refueling during an outage, and no extension cords. They're code-compliant, professionally installed, and designed to run for days or weeks if needed.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Generator Gators does not install generators ourselves — we connect homeowners with vetted, licensed local professionals who handle the entire installation process from permitting to final inspection.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-xl font-bold text-gray-900">Key Benefits</h3>
+          {[
+            { icon: '⚡', title: 'Fully Automatic', desc: 'Activates within seconds of an outage — no action required from you.' },
+            { icon: '🏠', title: 'Powers Everything', desc: 'Runs your HVAC, appliances, sump pump, lights, and electronics.' },
+            { icon: '⛽', title: 'Unlimited Runtime', desc: 'Connected to your gas line — no refueling needed during outages.' },
+            { icon: '📋', title: 'Code Compliant', desc: 'Professionally permitted and inspected by local authorities.' },
+            { icon: '💰', title: 'Home Value', desc: 'Adds measurable value to your property at resale.' },
+            { icon: '🔧', title: 'Low Maintenance', desc: 'Runs weekly self-tests automatically. Annual service recommended.' },
+          ].map(item => (
+            <div class="flex items-start gap-4 p-4 bg-green-50 rounded-xl">
+              <div class="text-2xl shrink-0" aria-hidden="true">{item.icon}</div>
+              <div>
+                <div class="font-semibold text-gray-900">{item.title}</div>
+                <div class="text-sm text-gray-600">{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALLATION PROCESS -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Generator Installation Process</h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          When you're matched with a Generator Gators installation partner, here's what the installation process typically looks like.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        {installationSteps.map((step, i) => (
+          <div class="flex gap-6 bg-white rounded-xl p-6 shadow-sm">
+            <div class="w-10 h-10 bg-green-800 text-white rounded-full flex items-center justify-center font-extrabold text-lg shrink-0">
+              {i + 1}
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 text-lg mb-2">{step.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GENERATOR SIZES -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">What Size Generator Do You Need?</h2>
+        <p class="text-gray-600 text-lg">Generator size is measured in kilowatts (kW). Here's a general guide.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          {
+            size: '10–16 kW',
+            label: 'Essential Circuits',
+            price: '$7,000–$12,000',
+            ideal: 'Smaller homes or homeowners who want to power essential circuits only.',
+            features: ['Lighting & outlets', 'Refrigerator & freezer', 'Sump pump', 'Select HVAC circuits'],
+            highlight: false,
+          },
+          {
+            size: '20–22 kW',
+            label: 'Whole-Home Standard',
+            price: '$12,000–$16,000',
+            ideal: 'Most Long Island and NYC homes — powers nearly everything.',
+            features: ['Full HVAC system', 'All appliances', 'Entire electrical panel', 'EV charging (partial)'],
+            highlight: true,
+          },
+          {
+            size: '24–26 kW+',
+            label: 'Large Home / High Load',
+            price: '$16,000–$20,000+',
+            ideal: 'Larger homes, homes with multiple HVAC systems, or high electrical demands.',
+            features: ['Multiple AC units', 'Electric range/oven', 'Full EV charging', 'Everything powered'],
+            highlight: false,
+          },
+        ].map(tier => (
+          <div class={`rounded-2xl p-6 border-2 ${tier.highlight ? 'border-green-700 bg-green-800 text-white' : 'border-gray-200 bg-white'}`}>
+            {tier.highlight && (
+              <div class="inline-block bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full mb-3">Most Popular</div>
+            )}
+            <div class="text-3xl font-extrabold mb-1" class={tier.highlight ? 'text-yellow-400' : 'text-green-800'}>{tier.size}</div>
+            <div class={`text-sm font-semibold mb-1 ${tier.highlight ? 'text-green-200' : 'text-gray-500'}`}>{tier.label}</div>
+            <div class={`text-xl font-bold mb-4 ${tier.highlight ? 'text-yellow-300' : 'text-gray-900'}`}>{tier.price}</div>
+            <p class={`text-sm mb-4 ${tier.highlight ? 'text-green-100' : 'text-gray-600'}`}>{tier.ideal}</p>
+            <ul class="space-y-2">
+              {tier.features.map(f => (
+                <li class={`flex items-center gap-2 text-sm ${tier.highlight ? 'text-green-100' : 'text-gray-700'}`}>
+                  <svg class={`w-4 h-4 shrink-0 ${tier.highlight ? 'text-yellow-400' : 'text-green-700'}`} fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-sm text-gray-500 mt-6">
+        Prices are estimates. Your matched installer will provide an exact quote based on your home, location, and installation requirements.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTERNAL LINKS -->
+  <section class="py-12 px-4 bg-green-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Explore More</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <a href="/generator-installation-cost" class="bg-white rounded-xl p-5 border border-gray-200 hover:border-green-500 hover:shadow-md transition-all text-center group">
+          <div class="text-2xl mb-2" aria-hidden="true">💰</div>
+          <div class="font-bold text-gray-900 group-hover:text-green-800 transition-colors">Installation Cost Guide</div>
+          <div class="text-sm text-gray-500 mt-1">Full cost breakdown</div>
+        </a>
+        <a href="/locations" class="bg-white rounded-xl p-5 border border-gray-200 hover:border-green-500 hover:shadow-md transition-all text-center group">
+          <div class="text-2xl mb-2" aria-hidden="true">📍</div>
+          <div class="font-bold text-gray-900 group-hover:text-green-800 transition-colors">Service Locations</div>
+          <div class="text-sm text-gray-500 mt-1">Find installers near you</div>
+        </a>
+        <a href="/contact" class="bg-white rounded-xl p-5 border border-gray-200 hover:border-green-500 hover:shadow-md transition-all text-center group">
+          <div class="text-2xl mb-2" aria-hidden="true">📞</div>
+          <div class="font-bold text-gray-900 group-hover:text-green-800 transition-colors">Contact Us</div>
+          <div class="text-sm text-gray-500 mt-1">Get your free quote</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE FORM -->
+  <QuoteForm
+    title="Get a Free Whole Home Generator Quote"
+    subtitle="We'll connect you with a vetted local standby generator installer in your area."
+  />
+
+  <!-- FAQ -->
+  <FAQSection title="Generator Installation FAQs" />
+
+</Layout>

@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+
+const phone = '555-555-5555';
+---
+
+<Layout
+  title="Contact Generator Gators | Get a Free Generator Installation Quote"
+  description="Contact Generator Gators to get a free whole home standby generator installation quote. We serve Long Island and NYC. Call 555-555-5555 or fill out our quote form."
+>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-green-900 to-green-800 text-white py-14 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-5">Contact Generator Gators</h1>
+      <p class="text-lg md:text-xl text-green-100 max-w-2xl mx-auto">
+        Ready to get a free generator installation quote? Fill out the form below or call us directly. We'll connect you with a vetted local installer in your area within 24 hours.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT OPTIONS -->
+  <section class="py-14 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="text-center p-6 bg-green-50 rounded-2xl border border-green-200">
+          <div class="w-14 h-14 bg-green-800 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Call Us</h3>
+          <a
+            href={`tel:${phone.replace(/-/g, '')}`}
+            class="text-green-800 font-bold text-xl hover:text-green-700 transition-colors"
+            aria-label={`Call us at ${phone}`}
+          >
+            {phone}
+          </a>
+          <p class="text-gray-500 text-sm mt-2">Mon–Sat, 8am–7pm</p>
+        </div>
+
+        <div class="text-center p-6 bg-green-50 rounded-2xl border border-green-200">
+          <div class="w-14 h-14 bg-green-800 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Email Us</h3>
+          <a
+            href="mailto:info@generatorgators.com"
+            class="text-green-800 font-semibold hover:text-green-700 transition-colors"
+          >
+            info@generatorgators.com
+          </a>
+          <p class="text-gray-500 text-sm mt-2">Response within 24 hours</p>
+        </div>
+
+        <div class="text-center p-6 bg-green-50 rounded-2xl border border-green-200">
+          <div class="w-14 h-14 bg-green-800 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Service Area</h3>
+          <p class="text-green-800 font-semibold">Long Island & NYC</p>
+          <a href="/locations" class="text-gray-500 text-sm mt-2 hover:text-green-700 transition-colors block">
+            View all locations →
+          </a>
+        </div>
+      </div>
+
+      <!-- What to expect -->
+      <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">What Happens After You Submit?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { step: '1', title: 'We Review Your Request', desc: 'We review your quote request and identify the best vetted installer partners in your area based on your zip code and needs.' },
+            { step: '2', title: 'You Get Matched', desc: 'Within 24 hours, we connect you with a vetted local generator installer who serves your area.' },
+            { step: '3', title: 'Free Site Visit & Quote', desc: 'Your matched installer contacts you to schedule a free, no-obligation site visit and provide a detailed installation quote.' },
+          ].map(item => (
+            <div class="flex gap-4">
+              <div class="w-9 h-9 bg-green-800 text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">
+                {item.step}
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">{item.title}</h3>
+                <p class="text-gray-600 text-sm">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE FORM (full) -->
+  <QuoteForm
+    title="Get Your Free Generator Quote"
+    subtitle="Fill out the form below and we'll match you with a vetted local standby generator installer within 24 hours."
+  />
+
+  <!-- MOBILE CTA -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 z-40">
+    <a
+      href={`tel:${phone.replace(/-/g, '')}`}
+      class="flex items-center justify-center gap-2 bg-green-800 text-white font-bold py-4 rounded-lg w-full"
+      aria-label={`Call us at ${phone}`}
+    >
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+      </svg>
+      Call Now: {phone}
+    </a>
+  </div>
+
+</Layout>

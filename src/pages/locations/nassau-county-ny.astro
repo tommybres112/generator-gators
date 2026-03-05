@@ -1,0 +1,191 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const phone = '555-555-5555';
+
+const towns = [
+  'Garden City', 'Hempstead', 'Levittown', 'Massapequa', 'Great Neck',
+  'Hicksville', 'Valley Stream', 'Oceanside', 'Lynbrook', 'Rockville Centre',
+  'Long Beach', 'Merrick', 'Bellmore', 'Wantagh', 'East Meadow',
+  'Plainview', 'Syosset', 'Manhasset', 'Port Washington', 'Glen Cove',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Generator Installation in Nassau County, NY',
+  serviceType: 'Standby Generator Installation Referral',
+  provider: { '@type': 'LocalBusiness', name: 'Generator Gators', url: 'https://www.generatorgators.com' },
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: 'Nassau County',
+    containedInPlace: { '@type': 'State', name: 'New York' },
+  },
+  description: 'Generator Gators connects Nassau County homeowners with vetted local standby generator installation partners. Free generator quotes for all Nassau County towns.',
+};
+---
+
+<Layout
+  title="Nassau County NY Generator Installation | Vetted Local Installers | Generator Gators"
+  description="Generator Gators connects Nassau County, NY homeowners with vetted standby generator installers. Free whole home generator installation quotes for Garden City, Levittown, Massapequa, and all Nassau County towns."
+  schema={schema}
+>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-green-900 to-green-800 text-white py-14 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-400/40 text-yellow-300 text-sm font-semibold px-3 py-1.5 rounded-full mb-5">
+        📍 Serving Nassau County, NY
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-5">Nassau County Generator Installation</h1>
+      <p class="text-lg md:text-xl text-green-100 max-w-2xl mx-auto mb-8">
+        Generator Gators connects Nassau County homeowners with vetted, licensed standby generator installation partners. Get a free whole-home generator quote for your Nassau County home.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="#quote-form"
+          class="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg"
+        >
+          Get a Free Nassau County Quote
+        </a>
+        <a
+          href={`tel:${phone.replace(/-/g, '')}`}
+          class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL CONTENT -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-5">
+            Standby Generator Installation in Nassau County, NY
+          </h2>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            Nassau County homeowners are no strangers to power outages. The county's proximity to the Atlantic Ocean and Long Island Sound makes it highly susceptible to coastal storms, nor'easters, and summer storm systems. In the wake of Hurricane Sandy, Superstorm Ida, and other major events, thousands of Nassau County homeowners have invested in standby generators — and for good reason.
+          </p>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            Generator Gators works with vetted local installation partners across Nassau County who understand PSEG Long Island utility requirements, Nassau County building codes, and the county's diverse mix of housing — from cape cods in Levittown to colonial homes in Garden City.
+          </p>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Our matching service is completely free. Submit a quote request and we'll connect you with a licensed, insured installer in your area at no cost.
+          </p>
+
+          <div class="bg-green-50 rounded-xl p-5 border border-green-200">
+            <h3 class="font-bold text-gray-900 mb-3">Nassau County Generator Advantage</h3>
+            <ul class="space-y-2">
+              {[
+                'PSEG Long Island utility coordination experience',
+                'Nassau County permit handling',
+                'Knowledge of local zoning and setback requirements',
+                'Licensed electricians and master plumbers for gas work',
+                'Free, no-obligation quotes for all Nassau towns',
+              ].map(item => (
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                  <svg class="w-4 h-4 text-green-700 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Nassau County Towns We Serve</h3>
+          <div class="flex flex-wrap gap-2 mb-8">
+            {towns.map(n => (
+              <span class="bg-green-50 text-green-800 text-sm font-medium px-3 py-1.5 rounded-full border border-green-200">
+                {n}
+              </span>
+            ))}
+          </div>
+
+          <div class="bg-gray-900 text-white rounded-xl p-6">
+            <h3 class="font-bold text-lg mb-4 text-yellow-400">Nassau County Storm Facts</h3>
+            <div class="space-y-3 text-sm">
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold shrink-0">⚡</span>
+                <span class="text-gray-300">Hurricane Sandy left over 350,000 Nassau County customers without power</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold shrink-0">⚡</span>
+                <span class="text-gray-300">PSEG Long Island serves Nassau County — our installers know PSEG requirements</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold shrink-0">⚡</span>
+                <span class="text-gray-300">Coastal communities in Nassau (Long Beach, Point Lookout) face extended outage risk</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold shrink-0">⚡</span>
+                <span class="text-gray-300">Nassau County permits required for all standby generator installations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-14 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">How Generator Gators Works in Nassau County</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { step: '1', title: 'Submit Your Request', desc: 'Fill out our free quote form with your Nassau County address and backup power needs.' },
+          { step: '2', title: 'Get Matched', desc: 'We connect you with a vetted, licensed generator installer serving Nassau County.' },
+          { step: '3', title: 'Receive Your Quote', desc: 'Your matched installer contacts you for a free site visit and detailed installation quote.' },
+        ].map(item => (
+          <div class="bg-white rounded-xl p-6 border border-gray-200 text-center">
+            <div class="w-12 h-12 bg-green-800 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+              {item.step}
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-gray-600 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER LOCATIONS -->
+  <section class="py-12 px-4 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-5 text-center">Other Service Areas</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {[
+          { name: 'Brooklyn, NY', href: '/locations/brooklyn-ny' },
+          { name: 'Queens, NY', href: '/locations/queens-ny' },
+          { name: 'Suffolk County', href: '/locations/suffolk-county-ny' },
+          { name: 'All Locations', href: '/locations' },
+        ].map(l => (
+          <a href={l.href} class="bg-green-50 text-green-800 font-semibold text-sm px-4 py-3 rounded-lg text-center hover:bg-green-100 transition-colors border border-green-200">
+            {l.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE FORM -->
+  <QuoteForm
+    title="Get a Free Nassau County Generator Quote"
+    subtitle="We'll connect you with a vetted local installer serving your Nassau County community."
+  />
+
+  <!-- FAQ -->
+  <FAQSection />
+
+</Layout>

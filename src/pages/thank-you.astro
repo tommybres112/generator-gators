@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MascotSVG from '../components/MascotSVG.astro';
+
+const phone = '555-555-5555';
+---
+
+<Layout
+  title="Thank You! | Generator Gators — We Received Your Quote Request"
+  description="Thank you for submitting your generator installation quote request. Generator Gators will match you with a vetted local installer within 24 hours."
+>
+
+  <section class="min-h-screen bg-gradient-to-br from-green-900 via-green-800 to-green-700 flex items-center justify-center py-16 px-4">
+    <div class="max-w-2xl mx-auto text-center text-white">
+
+      <!-- Mascot -->
+      <div class="flex justify-center mb-6">
+        <div class="relative">
+          <div class="absolute inset-0 bg-yellow-400/20 rounded-full blur-2xl" aria-hidden="true"></div>
+          <MascotSVG class="relative" width={200} height={200} />
+        </div>
+      </div>
+
+      <!-- Checkmark -->
+      <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
+        <svg class="w-10 h-10 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-5">
+        You're All Set, Homeowner!
+      </h1>
+
+      <p class="text-lg md:text-xl text-green-100 mb-8 leading-relaxed">
+        We received your generator installation quote request. The Generator Gators team will review your information and connect you with a vetted local standby generator installer in your area — typically within <strong class="text-yellow-400">24 hours</strong>.
+      </p>
+
+      <!-- What happens next -->
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 mb-8 text-left">
+        <h2 class="text-xl font-bold text-white mb-4 text-center">What Happens Next</h2>
+        <div class="space-y-4">
+          {[
+            { icon: '📋', title: 'We Review Your Request', desc: 'Our team reviews your request and matches it with the best available installer partner in your area.' },
+            { icon: '📞', title: 'Your Installer Reaches Out', desc: 'A vetted local installer will contact you by phone within 24 hours to discuss your needs.' },
+            { icon: '🏠', title: 'Free Site Visit & Quote', desc: 'Your installer will schedule a free, no-obligation site visit and provide a detailed installation quote.' },
+          ].map(item => (
+            <div class="flex items-start gap-4">
+              <div class="text-2xl shrink-0" aria-hidden="true">{item.icon}</div>
+              <div>
+                <div class="font-semibold text-white">{item.title}</div>
+                <div class="text-sm text-green-200">{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Call option -->
+      <p class="text-green-200 mb-4">Can't wait? Give us a call directly:</p>
+      <a
+        href={`tel:${phone.replace(/-/g, '')}`}
+        class="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-xl px-8 py-4 rounded-xl transition-colors shadow-lg mb-8"
+        aria-label={`Call us at ${phone}`}
+      >
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+        </svg>
+        Call {phone}
+      </a>
+
+      <div>
+        <a
+          href="/"
+          class="text-green-200 hover:text-white underline underline-offset-2 text-sm transition-colors"
+        >
+          ← Back to Generator Gators Home
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

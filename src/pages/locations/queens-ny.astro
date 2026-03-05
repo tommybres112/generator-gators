@@ -1,0 +1,190 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const phone = '555-555-5555';
+
+const neighborhoods = [
+  'Jamaica', 'Howard Beach', 'Bayside', 'Flushing', 'Ozone Park',
+  'Hollis', 'Springfield Gardens', 'Rosedale', 'Queens Village', 'Fresh Meadows',
+  'Forest Hills', 'Ridgewood', 'Maspeth', 'Woodhaven', 'Richmond Hill',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Generator Installation in Queens, NY',
+  serviceType: 'Standby Generator Installation Referral',
+  provider: { '@type': 'LocalBusiness', name: 'Generator Gators', url: 'https://www.generatorgators.com' },
+  areaServed: {
+    '@type': 'City',
+    name: 'Queens',
+    containedInPlace: { '@type': 'State', name: 'New York' },
+  },
+  description: 'Generator Gators connects Queens, NY homeowners with vetted local standby generator installation partners. Free generator quotes.',
+};
+---
+
+<Layout
+  title="Queens NY Generator Installation | Vetted Local Installers | Generator Gators"
+  description="Generator Gators connects Queens, NY homeowners with vetted standby generator installers. Free whole home generator installation quotes for Jamaica, Bayside, Howard Beach, Flushing, and all Queens neighborhoods."
+  schema={schema}
+>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-green-900 to-green-800 text-white py-14 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-400/40 text-yellow-300 text-sm font-semibold px-3 py-1.5 rounded-full mb-5">
+        📍 Serving Queens, NY
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-5">Queens, NY Generator Installation</h1>
+      <p class="text-lg md:text-xl text-green-100 max-w-2xl mx-auto mb-8">
+        Generator Gators connects Queens homeowners with vetted, licensed standby generator installation partners. Get a free whole-home generator quote for your Queens property.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="#quote-form"
+          class="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg"
+        >
+          Get a Free Queens Quote
+        </a>
+        <a
+          href={`tel:${phone.replace(/-/g, '')}`}
+          class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL CONTENT -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-5">
+            Standby Generator Installation in Queens, NY
+          </h2>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            Queens is one of the most diverse and sprawling boroughs in New York City, with a wide variety of single-family homes, semi-detached houses, and attached row homes — many of which are ideal candidates for whole-home standby generator installation. From Howard Beach near Jamaica Bay to the suburban stretches of Bayside and Hollis, Queens homeowners experience power outages just like the rest of the metro area.
+          </p>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            Generator Gators works with vetted installation partners who are experienced with Queens' housing stock, Con Edison utility requirements, and NYC Department of Buildings permitting processes. We make it easy to connect with a trusted local professional.
+          </p>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Submit your free quote request and we'll match you with an installer who serves your Queens neighborhood — at no cost to you.
+          </p>
+
+          <div class="bg-green-50 rounded-xl p-5 border border-green-200">
+            <h3 class="font-bold text-gray-900 mb-3">Why Queens Homeowners Choose Generator Gators</h3>
+            <ul class="space-y-2">
+              {[
+                'Installers experienced with Con Edison service requirements',
+                'NYC DOB permit handling included',
+                'Licensed and insured local professionals',
+                'Familiar with Queens\' diverse housing types',
+                'Free, no-obligation quotes',
+              ].map(item => (
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                  <svg class="w-4 h-4 text-green-700 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Queens Neighborhoods We Serve</h3>
+          <div class="flex flex-wrap gap-2 mb-8">
+            {neighborhoods.map(n => (
+              <span class="bg-green-50 text-green-800 text-sm font-medium px-3 py-1.5 rounded-full border border-green-200">
+                {n}
+              </span>
+            ))}
+          </div>
+
+          <div class="bg-gray-900 text-white rounded-xl p-6">
+            <h3 class="font-bold text-lg mb-4 text-yellow-400">Queens Power Outage Facts</h3>
+            <div class="space-y-3 text-sm">
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold shrink-0">⚡</span>
+                <span class="text-gray-300">Queens' low-lying areas like Howard Beach are flood and outage-prone during storms</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold shrink-0">⚡</span>
+                <span class="text-gray-300">Con Edison serves most of Queens — our installers understand utility requirements</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold shrink-0">⚡</span>
+                <span class="text-gray-300">Hurricane Sandy caused widespread multi-day outages throughout Queens</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold shrink-0">⚡</span>
+                <span class="text-gray-300">NYC DOB permits required for all residential generator installations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-14 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">How Generator Gators Works in Queens</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { step: '1', title: 'Submit Your Request', desc: 'Fill out our free quote form with your Queens address and backup power needs.' },
+          { step: '2', title: 'Get Matched', desc: 'We connect you with a vetted, licensed generator installer serving Queens.' },
+          { step: '3', title: 'Receive Your Quote', desc: 'Your matched pro contacts you to schedule a free site visit and provide a detailed quote.' },
+        ].map(item => (
+          <div class="bg-white rounded-xl p-6 border border-gray-200 text-center">
+            <div class="w-12 h-12 bg-green-800 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+              {item.step}
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-gray-600 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER LOCATIONS -->
+  <section class="py-12 px-4 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-5 text-center">Other Service Areas</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {[
+          { name: 'Brooklyn, NY', href: '/locations/brooklyn-ny' },
+          { name: 'Nassau County', href: '/locations/nassau-county-ny' },
+          { name: 'Suffolk County', href: '/locations/suffolk-county-ny' },
+          { name: 'All Locations', href: '/locations' },
+        ].map(l => (
+          <a href={l.href} class="bg-green-50 text-green-800 font-semibold text-sm px-4 py-3 rounded-lg text-center hover:bg-green-100 transition-colors border border-green-200">
+            {l.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE FORM -->
+  <QuoteForm
+    title="Get a Free Queens Generator Quote"
+    subtitle="We'll connect you with a vetted local installer serving the Queens area."
+  />
+
+  <!-- FAQ -->
+  <FAQSection />
+
+</Layout>

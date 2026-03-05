@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gator-green: #166534;
+  --color-gator-green-light: #15803d;
+  --color-gator-green-dark: #14532d;
+  --color-gator-yellow: #eab308;
+  --color-gator-yellow-light: #fde047;
+  --color-gator-charcoal: #111827;
+  --color-gator-gray: #374151;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--color-gator-yellow);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

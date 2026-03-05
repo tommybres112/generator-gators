@@ -1,0 +1,118 @@
+---
+const phone = '555-555-5555';
+const currentYear = new Date().getFullYear();
+
+const serviceLinks = [
+  { label: 'Whole Home Generator Installation', href: '/whole-home-generator-installation' },
+  { label: 'Generator Installation Cost', href: '/generator-installation-cost' },
+  { label: 'Get a Free Quote', href: '/contact' },
+  { label: 'About Generator Gators', href: '/about' },
+];
+
+const locationLinks = [
+  { label: 'Brooklyn, NY', href: '/locations/brooklyn-ny' },
+  { label: 'Queens, NY', href: '/locations/queens-ny' },
+  { label: 'Nassau County, NY', href: '/locations/nassau-county-ny' },
+  { label: 'Suffolk County, NY', href: '/locations/suffolk-county-ny' },
+  { label: 'All Service Areas', href: '/locations' },
+];
+---
+
+<footer class="bg-gray-900 text-gray-300">
+  <!-- Main Footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- Brand Column -->
+      <div class="lg:col-span-1">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 14c0-2.2 1.8-4 4-4h10c2.2 0 4 1.8 4 4v2c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1v-2z" fill="#4ade80"/>
+              <path d="M5 12V9c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v3" fill="#16a34a"/>
+              <circle cx="7" cy="18" r="1.5" fill="#166534"/>
+              <circle cx="17" cy="18" r="1.5" fill="#166534"/>
+              <path d="M11 6l-2 4h3l-1 4" stroke="#eab308" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <span class="text-lg font-extrabold text-white tracking-tight leading-none block">Generator</span>
+            <span class="text-lg font-extrabold text-yellow-400 tracking-tight leading-none block">Gators</span>
+          </div>
+        </a>
+        <p class="text-sm text-gray-400 leading-relaxed mb-4">
+          Generator Gators connects homeowners with vetted local standby generator installation partners across Long Island and New York City.
+        </p>
+        <a
+          href={`tel:${phone.replace(/-/g, '')}`}
+          class="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-sm px-4 py-2 rounded-lg transition-colors"
+          aria-label={`Call us at ${phone}`}
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          {phone}
+        </a>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Services</h3>
+        <ul class="space-y-2">
+          {serviceLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-yellow-400 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Service Areas -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Service Areas</h3>
+        <ul class="space-y-2">
+          {locationLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-yellow-400 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Company</h3>
+        <ul class="space-y-2 mb-6">
+          <li><a href="/about" class="text-sm text-gray-400 hover:text-yellow-400 transition-colors">About Us</a></li>
+          <li><a href="/contact" class="text-sm text-gray-400 hover:text-yellow-400 transition-colors">Contact</a></li>
+          <li><a href="/privacy-policy" class="text-sm text-gray-400 hover:text-yellow-400 transition-colors">Privacy Policy</a></li>
+        </ul>
+        <div class="bg-green-900 rounded-lg p-4">
+          <p class="text-xs text-green-200 leading-relaxed">
+            <strong class="text-white">Not a direct installer.</strong> Generator Gators is a referral and matching service. We connect homeowners with vetted local installation partners.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <p class="text-xs text-gray-500">
+        &copy; {currentYear} Generator Gators. All rights reserved.
+      </p>
+      <p class="text-xs text-gray-500 text-center">
+        Generator Gators is a referral service. We are not licensed contractors or installers.
+      </p>
+      <div class="flex gap-4">
+        <a href="/privacy-policy" class="text-xs text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a>
+        <a href="/contact" class="text-xs text-gray-500 hover:text-gray-300 transition-colors">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>

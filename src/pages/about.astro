@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import MascotSVG from '../components/MascotSVG.astro';
+
+const phone = '555-555-5555';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Generator Gators',
+  description: 'Generator Gators is a free generator installation matching service connecting Long Island and NYC homeowners with vetted local standby generator installation partners.',
+  url: 'https://www.generatorgators.com/about',
+  mainEntity: {
+    '@type': 'LocalBusiness',
+    name: 'Generator Gators',
+    description: 'Generator installation referral service serving Long Island and New York City.',
+    url: 'https://www.generatorgators.com',
+    telephone: '555-555-5555',
+  },
+};
+---
+
+<Layout
+  title="About Generator Gators | Trusted Generator Installation Matching Service"
+  description="Generator Gators is a free service that connects Long Island and NYC homeowners with vetted local standby generator installation partners. Learn how we work."
+  schema={schema}
+>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-green-900 to-green-800 text-white py-14 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-5">About Generator Gators</h1>
+      <p class="text-lg md:text-xl text-green-100 max-w-2xl mx-auto">
+        We're a free matching service connecting Long Island and NYC homeowners with vetted local standby generator installation partners. Here's how we do it — and why.
+      </p>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-5">Our Mission</h2>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            Generator Gators was created with a simple mission: help Long Island and NYC homeowners find trustworthy, local standby generator installation professionals — without the hassle of searching through dozens of contractors, getting multiple quotes, and hoping you chose someone reliable.
+          </p>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            Power outages are a serious issue in the New York metro area. Nor'easters, tropical storms, and summer thunderstorms routinely knock out power for hours or days. We've seen firsthand how a standby generator changes everything — and how frustrating it can be for homeowners to find a qualified installer they can trust.
+          </p>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            That's why we built Generator Gators — a curated network of vetted local professionals, connected to homeowners through a simple, free matching process.
+          </p>
+
+          <div class="flex items-start gap-3 bg-yellow-50 border border-yellow-200 rounded-xl p-5">
+            <div class="text-2xl shrink-0" aria-hidden="true">⚡</div>
+            <div>
+              <div class="font-bold text-gray-900 mb-1">Important Note</div>
+              <p class="text-sm text-gray-600">
+                Generator Gators does <strong>not</strong> install generators ourselves. We are a referral and matching service. Every installation is performed by a vetted, licensed, and insured local professional in our network.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <MascotSVG width={280} height={280} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE VET PARTNERS -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">How We Vet Our Installation Partners</h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          Not every contractor makes it into the Generator Gators network. We have a rigorous vetting process to ensure only qualified professionals represent our brand.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          {
+            icon: '📋',
+            title: 'License Verification',
+            desc: 'We verify that all partners hold current, valid state and local electrical licenses, gas fitting licenses, and any other credentials required in their service area.',
+          },
+          {
+            icon: '🛡️',
+            title: 'Insurance Requirements',
+            desc: 'All network partners carry general liability insurance and workers\' compensation coverage — protecting you if anything goes wrong during installation.',
+          },
+          {
+            icon: '⭐',
+            title: 'Reputation Review',
+            desc: 'We evaluate installer reputation through reviews, references, and track record. Only installers with strong customer satisfaction records are accepted.',
+          },
+          {
+            icon: '📍',
+            title: 'Local Knowledge',
+            desc: 'We prioritize installers who are genuinely local — people who know your municipality\'s permit requirements, utility providers, and building codes.',
+          },
+          {
+            icon: '⚙️',
+            title: 'Generator Experience',
+            desc: 'We require demonstrated experience specifically with standby generator installation — not just general electrical contracting.',
+          },
+          {
+            icon: '🤝',
+            title: 'Ongoing Accountability',
+            desc: 'We monitor customer feedback on an ongoing basis. Partners who don\'t meet our standards are removed from the network.',
+          },
+        ].map(item => (
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-start gap-4">
+              <div class="text-3xl shrink-0" aria-hidden="true">{item.icon}</div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="py-16 px-4 bg-green-800 text-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold mb-4">What We Stand For</h2>
+        <p class="text-green-200 text-lg max-w-xl mx-auto">
+          Generator Gators was built on a few simple values that guide everything we do.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { icon: '🔍', title: 'Transparency', desc: 'We\'re always upfront about what we do — and what we don\'t. We\'re a matching service, not installers. No hidden fees. No bait-and-switch.' },
+          { icon: '🤝', title: 'Trust', desc: 'Every partner in our network has been vetted. We stake our reputation on connecting you with someone reliable, qualified, and professional.' },
+          { icon: '🏡', title: 'Homeowner First', desc: 'Our service is free for homeowners. We\'re on your side — helping you make an informed decision without any pressure.' },
+        ].map(item => (
+          <div class="bg-green-700 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-3" aria-hidden="true">{item.icon}</div>
+            <h3 class="font-bold text-xl mb-3">{item.title}</h3>
+            <p class="text-green-100 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Where We Operate</h2>
+      <p class="text-gray-600 text-lg mb-8">
+        Generator Gators currently serves homeowners across Long Island and New York City, with plans to expand our network throughout the broader New York metro area.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {[
+          { name: 'Brooklyn, NY', href: '/locations/brooklyn-ny' },
+          { name: 'Queens, NY', href: '/locations/queens-ny' },
+          { name: 'Nassau County', href: '/locations/nassau-county-ny' },
+          { name: 'Suffolk County', href: '/locations/suffolk-county-ny' },
+        ].map(area => (
+          <a
+            href={area.href}
+            class="bg-green-50 border border-green-200 text-green-800 font-semibold px-4 py-3 rounded-xl hover:bg-green-100 transition-colors text-sm text-center"
+          >
+            {area.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-4 bg-gray-50 text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
+      <p class="text-gray-600 mb-8">
+        Submit a free quote request and we'll match you with a vetted local generator installer — at no cost to you.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center gap-2 bg-green-800 hover:bg-green-700 text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-md"
+        >
+          Get a Free Quote
+        </a>
+        <a
+          href={`tel:${phone.replace(/-/g, '')}`}
+          class="inline-flex items-center justify-center gap-2 bg-white border-2 border-green-800 text-green-800 font-bold text-lg px-8 py-4 rounded-xl hover:bg-green-50 transition-colors"
+        >
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

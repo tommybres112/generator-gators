@@ -1,0 +1,136 @@
+---
+interface Props {
+  class?: string;
+  width?: number;
+  height?: number;
+}
+const { class: className = '', width = 320, height = 320 } = Astro.props;
+---
+
+<svg
+  class={className}
+  width={width}
+  height={height}
+  viewBox="0 0 320 320"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Power Gator mascot holding a generator"
+>
+  <!-- Shadow -->
+  <ellipse cx="160" cy="300" rx="90" ry="12" fill="#00000020"/>
+
+  <!-- Tail -->
+  <path d="M230 230 Q270 250 280 240 Q295 228 285 215 Q275 200 255 210 Q240 218 230 230Z"
+    fill="#15803d" stroke="#14532d" stroke-width="2"/>
+  <path d="M255 210 Q262 205 268 208 Q274 212 270 218Z" fill="#166534"/>
+
+  <!-- Body -->
+  <ellipse cx="155" cy="215" rx="85" ry="75" fill="#16a34a"/>
+
+  <!-- Belly -->
+  <ellipse cx="152" cy="225" rx="55" ry="50" fill="#4ade80" opacity="0.6"/>
+
+  <!-- Left Leg -->
+  <path d="M95 265 Q80 280 70 285 Q65 287 68 292 Q72 297 80 295 Q90 293 100 285 Q110 277 110 268Z"
+    fill="#15803d" stroke="#14532d" stroke-width="1.5"/>
+  <!-- Left Foot toes -->
+  <path d="M68 292 Q62 296 60 300 M72 296 Q68 302 66 307 M78 295 Q76 302 74 306"
+    stroke="#14532d" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Right Leg -->
+  <path d="M215 265 Q230 280 240 285 Q245 287 242 292 Q238 297 230 295 Q220 293 210 285 Q200 277 200 268Z"
+    fill="#15803d" stroke="#14532d" stroke-width="1.5"/>
+  <!-- Right Foot toes -->
+  <path d="M242 292 Q248 296 250 300 M238 296 Q242 302 244 307 M232 295 Q234 302 236 306"
+    stroke="#14532d" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Left Arm (holding generator) -->
+  <path d="M90 195 Q65 210 55 230 Q50 240 58 248 Q66 256 80 248 Q95 238 105 220Z"
+    fill="#15803d" stroke="#14532d" stroke-width="1.5"/>
+
+  <!-- Right Arm (raised/gesturing) -->
+  <path d="M220 185 Q245 170 255 155 Q262 144 255 137 Q248 130 238 137 Q225 147 215 165Z"
+    fill="#15803d" stroke="#14532d" stroke-width="1.5"/>
+
+  <!-- Neck -->
+  <ellipse cx="155" cy="148" rx="40" ry="30" fill="#16a34a"/>
+
+  <!-- Head -->
+  <ellipse cx="155" cy="115" rx="55" ry="48" fill="#16a34a"/>
+
+  <!-- Snout -->
+  <path d="M105 125 Q108 145 130 150 Q155 155 180 150 Q202 145 205 125 Q200 110 155 108 Q110 110 105 125Z"
+    fill="#15803d" stroke="#14532d" stroke-width="1.5"/>
+
+  <!-- Nostrils -->
+  <ellipse cx="143" cy="127" rx="5" ry="4" fill="#14532d" opacity="0.6"/>
+  <ellipse cx="167" cy="127" rx="5" ry="4" fill="#14532d" opacity="0.6"/>
+
+  <!-- Teeth (smile) -->
+  <path d="M125 143 Q130 148 155 150 Q180 148 185 143" stroke="#14532d" stroke-width="1.5" fill="none"/>
+  <rect x="130" y="143" width="7" height="6" rx="1" fill="white" stroke="#14532d" stroke-width="1"/>
+  <rect x="142" y="144" width="7" height="6" rx="1" fill="white" stroke="#14532d" stroke-width="1"/>
+  <rect x="154" y="144" width="7" height="6" rx="1" fill="white" stroke="#14532d" stroke-width="1"/>
+  <rect x="166" y="144" width="7" height="6" rx="1" fill="white" stroke="#14532d" stroke-width="1"/>
+  <rect x="178" y="143" width="7" height="6" rx="1" fill="white" stroke="#14532d" stroke-width="1"/>
+
+  <!-- Eyes -->
+  <ellipse cx="133" cy="100" rx="14" ry="14" fill="white" stroke="#14532d" stroke-width="2"/>
+  <ellipse cx="177" cy="100" rx="14" ry="14" fill="white" stroke="#14532d" stroke-width="2"/>
+  <circle cx="136" cy="101" r="8" fill="#111827"/>
+  <circle cx="180" cy="101" r="8" fill="#111827"/>
+  <!-- Eye shine -->
+  <circle cx="139" cy="98" r="3" fill="white"/>
+  <circle cx="183" cy="98" r="3" fill="white"/>
+
+  <!-- Eye ridges (gator brow) -->
+  <path d="M120 90 Q133 85 146 90" stroke="#14532d" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M164 90 Q177 85 190 90" stroke="#14532d" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Hard Hat -->
+  <path d="M100 98 Q100 62 155 60 Q210 62 210 98Z" fill="#eab308"/>
+  <rect x="95" y="96" width="120" height="12" rx="4" fill="#ca8a04"/>
+  <!-- Hard hat brim -->
+  <path d="M88 108 Q100 112 155 112 Q210 112 222 108" stroke="#a16207" stroke-width="2" fill="none"/>
+  <!-- Hat shine -->
+  <path d="M130 68 Q145 64 160 66" stroke="#fde047" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.7"/>
+
+  <!-- Generator Box (held in left hand area) -->
+  <rect x="25" y="228" width="60" height="48" rx="6" fill="#374151" stroke="#1f2937" stroke-width="2"/>
+  <!-- Generator panel -->
+  <rect x="30" y="234" width="50" height="36" rx="3" fill="#1f2937"/>
+  <!-- Generator controls -->
+  <rect x="34" y="238" width="20" height="12" rx="2" fill="#374151"/>
+  <!-- Power indicator -->
+  <circle cx="44" cy="244" r="3" fill="#4ade80"/>
+  <circle cx="44" cy="244" r="1.5" fill="#86efac"/>
+  <!-- Gauge -->
+  <rect x="36" y="253" width="16" height="4" rx="1" fill="#6b7280"/>
+  <rect x="36" y="253" width="10" height="4" rx="1" fill="#eab308"/>
+  <!-- Lightning bolt on generator -->
+  <path d="M58 238 L53 248 L57 248 L52 262 L60 249 L56 249 Z" fill="#eab308"/>
+  <!-- Generator exhaust -->
+  <rect x="60" y="237" width="15" height="8" rx="2" fill="#4b5563"/>
+  <rect x="62" y="239" width="3" height="4" rx="1" fill="#9ca3af"/>
+  <rect x="67" y="239" width="3" height="4" rx="1" fill="#9ca3af"/>
+  <rect x="72" y="239" width="3" height="4" rx="1" fill="#9ca3af"/>
+  <!-- Generator wheels -->
+  <circle cx="38" cy="277" r="5" fill="#6b7280" stroke="#374151" stroke-width="1.5"/>
+  <circle cx="72" cy="277" r="5" fill="#6b7280" stroke="#374151" stroke-width="1.5"/>
+
+  <!-- Stars/sparkles around generator (power effect) -->
+  <path d="M20 215 L22 210 L24 215 L29 217 L24 219 L22 224 L20 219 L15 217 Z" fill="#eab308" opacity="0.8"/>
+  <path d="M82 218 L84 214 L86 218 L90 220 L86 222 L84 226 L82 222 L78 220 Z" fill="#eab308" opacity="0.6"/>
+
+  <!-- Right hand pointing up (thumbs up vibe) -->
+  <ellipse cx="250" cy="135" rx="14" ry="18" fill="#15803d" stroke="#14532d" stroke-width="1.5"/>
+  <!-- Thumb up shape -->
+  <path d="M243 140 Q242 128 250 125 Q258 128 257 140 Q257 148 250 150 Q243 148 243 140Z"
+    fill="#16a34a"/>
+
+  <!-- Scale lines on body (gator texture) -->
+  <path d="M120 195 Q135 190 150 195 Q165 190 180 195" stroke="#14532d" stroke-width="1" opacity="0.3" fill="none"/>
+  <path d="M115 210 Q132 205 155 210 Q175 205 195 210" stroke="#14532d" stroke-width="1" opacity="0.3" fill="none"/>
+  <path d="M120 225 Q140 220 155 225 Q172 220 190 225" stroke="#14532d" stroke-width="1" opacity="0.3" fill="none"/>
+</svg>

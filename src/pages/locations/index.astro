@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const phone = '555-555-5555';
+
+const locations = [
+  {
+    name: 'Brooklyn, NY',
+    href: '/locations/brooklyn-ny',
+    emoji: '🏙️',
+    desc: 'Serving Brooklyn neighborhoods including Park Slope, Bay Ridge, Flatbush, Canarsie, and more.',
+    highlights: ['Carroll Gardens', 'Bay Ridge', 'Flatbush', 'Canarsie', 'Bensonhurst', 'Sheepshead Bay'],
+  },
+  {
+    name: 'Queens, NY',
+    href: '/locations/queens-ny',
+    emoji: '🌆',
+    desc: 'Connecting Queens homeowners across Jamaica, Howard Beach, Bayside, Flushing, and surrounding areas.',
+    highlights: ['Jamaica', 'Howard Beach', 'Bayside', 'Flushing', 'Ozone Park', 'Hollis'],
+  },
+  {
+    name: 'Nassau County, NY',
+    href: '/locations/nassau-county-ny',
+    emoji: '🏡',
+    desc: 'Whole-home generator installation across all Nassau County towns and villages.',
+    highlights: ['Garden City', 'Hempstead', 'Levittown', 'Massapequa', 'Great Neck', 'Hicksville'],
+  },
+  {
+    name: 'Suffolk County, NY',
+    href: '/locations/suffolk-county-ny',
+    emoji: '🌳',
+    desc: 'Generator installation partners serving communities across all of Suffolk County.',
+    highlights: ['Huntington', 'Babylon', 'Islip', 'Smithtown', 'Riverhead', 'Southampton'],
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Generator Gators Service Locations',
+  description: 'Generator installation service areas in Long Island and New York City',
+  itemListElement: locations.map((loc, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: loc.name,
+    url: `https://www.generatorgators.com${loc.href}`,
+  })),
+};
+---
+
+<Layout
+  title="Generator Installation Service Areas | Long Island & NYC | Generator Gators"
+  description="Generator Gators connects homeowners with vetted generator installers across Long Island and NYC — including Brooklyn, Queens, Nassau County, and Suffolk County."
+  schema={schema}
+>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-green-900 to-green-800 text-white py-14 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-400/40 text-yellow-300 text-sm font-semibold px-3 py-1.5 rounded-full mb-5">
+        📍 Our Service Areas
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-5">Generator Installation Locations</h1>
+      <p class="text-lg md:text-xl text-green-100 max-w-2xl mx-auto mb-8">
+        Generator Gators connects homeowners across Long Island and New York City with vetted local standby generator installation partners.
+      </p>
+      <a
+        href="#quote-form"
+        class="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg"
+      >
+        Get a Free Quote in Your Area
+      </a>
+    </div>
+  </section>
+
+  <!-- LOCATION CARDS -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Areas We Serve</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {locations.map(loc => (
+          <div class="bg-white rounded-2xl border-2 border-gray-200 hover:border-green-600 transition-all hover:shadow-lg group p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="text-4xl" aria-hidden="true">{loc.emoji}</div>
+              <h2 class="text-2xl font-bold text-gray-900 group-hover:text-green-800 transition-colors">
+                <a href={loc.href}>{loc.name}</a>
+              </h2>
+            </div>
+            <p class="text-gray-600 mb-4">{loc.desc}</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              {loc.highlights.map(town => (
+                <span class="bg-green-50 text-green-800 text-xs font-semibold px-3 py-1 rounded-full border border-green-200">
+                  {town}
+                </span>
+              ))}
+            </div>
+            <a
+              href={loc.href}
+              class="inline-flex items-center gap-2 text-green-800 hover:text-green-700 font-bold text-sm"
+            >
+              View {loc.name} details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NOT IN AREA -->
+  <section class="py-12 px-4 bg-yellow-50 border-y border-yellow-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="text-4xl mb-4" aria-hidden="true">📍</div>
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Don't See Your Town?</h2>
+      <p class="text-gray-600 mb-6">
+        Our installer network is always growing. Contact us with your zip code and we'll let you know if we have a vetted partner in your area — or add you to the waitlist as we expand.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center gap-2 bg-green-800 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-lg transition-colors"
+        >
+          Contact Us
+        </a>
+        <a
+          href={`tel:${phone.replace(/-/g, '')}`}
+          class="inline-flex items-center justify-center gap-2 bg-white border-2 border-green-800 text-green-800 font-bold px-6 py-3 rounded-lg hover:bg-green-50 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE FORM -->
+  <QuoteForm
+    title="Get a Free Generator Quote"
+    subtitle="Tell us your zip code and we'll match you with a vetted local installer."
+  />
+
+</Layout>

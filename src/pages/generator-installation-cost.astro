@@ -1,0 +1,218 @@
+---
+import Layout from '../layouts/Layout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQSection from '../components/FAQSection.astro';
+
+const phone = '555-555-5555';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'How Much Does Whole Home Generator Installation Cost?',
+  description: 'A complete cost guide for whole home standby generator installation in Long Island and NYC. Includes price ranges, factors that affect cost, and how to get a free quote.',
+  author: { '@type': 'Organization', name: 'Generator Gators' },
+  publisher: { '@type': 'Organization', name: 'Generator Gators', url: 'https://www.generatorgators.com' },
+};
+---
+
+<Layout
+  title="Generator Installation Cost 2025 | Long Island & NYC Price Guide | Generator Gators"
+  description="How much does whole home generator installation cost in Long Island and NYC? Complete 2025 price guide covering generator sizes, installation factors, and how to get a free quote."
+  schema={schema}
+>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-green-900 to-green-800 text-white py-14 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-400/40 text-yellow-300 text-sm font-semibold px-3 py-1.5 rounded-full mb-5">
+        💰 2025 Price Guide
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-5">Generator Installation Cost</h1>
+      <p class="text-lg md:text-xl text-green-100 max-w-2xl mx-auto mb-8">
+        What does it really cost to install a whole home standby generator in Long Island and New York City? Here's everything you need to know before getting quotes.
+      </p>
+      <a
+        href="#quote-form"
+        class="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg"
+      >
+        Get My Free Quote
+      </a>
+    </div>
+  </section>
+
+  <!-- COST OVERVIEW -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">How Much Does a Whole Home Generator Cost?</h2>
+        <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+          The total cost of a whole home standby generator installation in the Long Island and NYC area typically ranges from <strong class="text-green-800">$7,000 to $20,000+</strong>, including equipment and labor. Here's a detailed breakdown.
+        </p>
+      </div>
+
+      <!-- Big cost card -->
+      <div class="bg-green-800 text-white rounded-2xl p-8 mb-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="text-4xl font-extrabold text-yellow-400 mb-2">$7,000</div>
+            <div class="text-green-200 text-sm">Starting price</div>
+            <div class="text-white font-semibold mt-1">Essential circuits (10–16 kW)</div>
+          </div>
+          <div class="border-t md:border-t-0 md:border-x border-green-700 pt-6 md:pt-0 md:px-8">
+            <div class="text-4xl font-extrabold text-yellow-400 mb-2">$13,000</div>
+            <div class="text-green-200 text-sm">Most common price</div>
+            <div class="text-white font-semibold mt-1">Whole home (20–22 kW)</div>
+          </div>
+          <div class="border-t md:border-t-0 border-green-700 pt-6 md:pt-0">
+            <div class="text-4xl font-extrabold text-yellow-400 mb-2">$20,000+</div>
+            <div class="text-green-200 text-sm">High-end installations</div>
+            <div class="text-white font-semibold mt-1">Large homes (24+ kW)</div>
+          </div>
+        </div>
+        <p class="text-center text-green-200 text-sm mt-8">
+          All prices are estimates for the Long Island / NYC market. Your exact cost depends on factors below.
+        </p>
+      </div>
+
+      <!-- Cost breakdown table -->
+      <h3 class="text-2xl font-bold text-gray-900 mb-5">Cost Breakdown by Component</h3>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead class="bg-green-800 text-white">
+            <tr>
+              <th class="text-left px-4 py-3 font-semibold">Component</th>
+              <th class="text-left px-4 py-3 font-semibold">Typical Cost</th>
+              <th class="text-left px-4 py-3 font-semibold hidden md:table-cell">Notes</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {[
+              { item: 'Generator unit (10–16 kW)', cost: '$2,500–$5,000', note: 'Generac, Kohler, Briggs & Stratton, Cummins' },
+              { item: 'Generator unit (20–22 kW)', cost: '$4,000–$7,500', note: 'Most popular size for Long Island homes' },
+              { item: 'Generator unit (24–26 kW)', cost: '$6,500–$10,000+', note: 'For larger homes or high-draw appliances' },
+              { item: 'Automatic Transfer Switch (ATS)', cost: '$700–$2,000', note: 'Included with most units; standalone versions available' },
+              { item: 'Concrete or composite pad', cost: '$300–$800', note: 'Required by most installers and local codes' },
+              { item: 'Gas line extension', cost: '$500–$2,000+', note: 'Varies based on distance from meter' },
+              { item: 'Electrical work & wiring', cost: '$1,000–$3,000', note: 'Panel connections, load wiring, inspector-ready' },
+              { item: 'Permits & inspections', cost: '$500–$1,500', note: 'Required by all Long Island and NYC municipalities' },
+              { item: 'Labor (total installation)', cost: '$2,000–$5,000', note: '1–3 days for most residential installations' },
+            ].map((row, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                <td class="px-4 py-3 text-gray-900 font-medium">{row.item}</td>
+                <td class="px-4 py-3 text-green-800 font-bold">{row.cost}</td>
+                <td class="px-4 py-3 text-gray-500 hidden md:table-cell">{row.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACTORS AFFECTING COST -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">What Affects Installation Cost?</h2>
+        <p class="text-gray-600 text-lg">Every installation is different. These factors impact your final price.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          {
+            icon: '📐',
+            title: 'Generator Size (kW)',
+            desc: 'The most significant cost factor. A 10 kW unit will cost significantly less than a 22 kW whole-home system. Your installer will calculate the right size based on your electrical load.',
+          },
+          {
+            icon: '⛽',
+            title: 'Fuel Type & Gas Line Distance',
+            desc: 'Natural gas is usually the most cost-effective option. If your gas meter is far from the ideal generator placement, the gas line extension adds cost. Propane requires a tank installation.',
+          },
+          {
+            icon: '🏗️',
+            title: 'Electrical Panel Condition',
+            desc: 'If your electrical panel is outdated or already at capacity, upgrades may be needed before generator installation. This can add $1,000–$3,000 to your project.',
+          },
+          {
+            icon: '📋',
+            title: 'Local Permits & Code Requirements',
+            desc: 'Long Island and NYC municipalities each have specific permitting and inspection requirements. Some areas have higher permit fees or more complex approval processes.',
+          },
+          {
+            icon: '🌳',
+            title: 'Site Accessibility & Placement',
+            desc: 'Generators must be placed a certain distance from windows, doors, and property lines. Difficult access, landscaping, or HVAC equipment can affect placement and cost.',
+          },
+          {
+            icon: '🏷️',
+            title: 'Generator Brand',
+            desc: 'Premium brands like Generac, Kohler, and Cummins carry different price points. Your installer will help you balance budget with quality and warranty coverage.',
+          },
+        ].map(item => (
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-start gap-4">
+              <div class="text-3xl shrink-0" aria-hidden="true">{item.icon}</div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI SECTION -->
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Is a Standby Generator Worth the Cost?</h2>
+      <div class="bg-yellow-50 border border-yellow-200 rounded-2xl p-8">
+        <p class="text-gray-700 mb-4 leading-relaxed">
+          For Long Island homeowners, the answer is almost always yes. The New York metro area regularly experiences multi-day power outages from nor'easters, tropical storms, and summer thunderstorms. The cost of a single major outage — spoiled food, hotel stays, frozen pipes, or sump pump failure — can quickly reach thousands of dollars.
+        </p>
+        <p class="text-gray-700 mb-4 leading-relaxed">
+          Studies also show that homes with whole-home standby generators sell faster and at a premium — with some real estate experts estimating a return of 50–70% of installation cost at resale.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Generator Gators connects you with local installers who offer free, no-obligation quotes — so you can make an informed decision without any pressure.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERNAL LINKS -->
+  <section class="py-12 px-4 bg-green-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Learn More</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <a href="/whole-home-generator-installation" class="bg-white rounded-xl p-5 border border-gray-200 hover:border-green-500 hover:shadow-md transition-all text-center group">
+          <div class="text-2xl mb-2" aria-hidden="true">🏠</div>
+          <div class="font-bold text-gray-900 group-hover:text-green-800 transition-colors">Installation Guide</div>
+          <div class="text-sm text-gray-500 mt-1">Full installation process</div>
+        </a>
+        <a href="/locations" class="bg-white rounded-xl p-5 border border-gray-200 hover:border-green-500 hover:shadow-md transition-all text-center group">
+          <div class="text-2xl mb-2" aria-hidden="true">📍</div>
+          <div class="font-bold text-gray-900 group-hover:text-green-800 transition-colors">Find Local Installers</div>
+          <div class="text-sm text-gray-500 mt-1">Browse service areas</div>
+        </a>
+        <a href="/contact" class="bg-white rounded-xl p-5 border border-gray-200 hover:border-green-500 hover:shadow-md transition-all text-center group">
+          <div class="text-2xl mb-2" aria-hidden="true">💬</div>
+          <div class="font-bold text-gray-900 group-hover:text-green-800 transition-colors">Get a Free Quote</div>
+          <div class="text-sm text-gray-500 mt-1">No obligation estimate</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE FORM -->
+  <QuoteForm
+    title="Get a Free Generator Installation Quote"
+    subtitle="Find out exactly what installation will cost for your home — free, no obligation."
+  />
+
+  <!-- FAQ -->
+  <FAQSection title="Generator Cost FAQs" />
+
+</Layout>
