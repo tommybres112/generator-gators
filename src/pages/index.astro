@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import FAQSection from '../components/FAQSection.astro';
-import MascotSVG from '../components/MascotSVG.astro';
 
 const phone = '555-555-5555';
 
@@ -104,15 +103,17 @@ const schema = [
           </div>
         </div>
 
-        <!-- Right: Mascot -->
-        <div class="hidden lg:flex justify-end items-end relative">
-          <!-- Subtle warm glow behind mascot -->
-          <div
-            class="absolute bottom-0 right-0 pointer-events-none"
-            aria-hidden="true"
-            style="width:420px; height:420px; background:radial-gradient(ellipse at 50% 85%, rgba(245,230,66,0.10) 0%, transparent 65%); border-radius:50%;"
-          ></div>
-          <MascotSVG width={370} height={370} />
+        <!-- Right: Mascot — anchored to bottom, bleeds slightly below hero -->
+        <div class="hidden lg:block relative self-end" style="margin-bottom:-4px;">
+          <img
+            src="/mascot-hero.png"
+            alt="Generator Gators mascot — a gator in a hard hat holding a standby generator"
+            width="620"
+            height="421"
+            loading="eager"
+            class="w-full max-w-[620px] drop-shadow-2xl"
+            style="display:block;"
+          />
         </div>
 
       </div>
