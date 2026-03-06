@@ -12,63 +12,56 @@ interface Props {
 const defaultFaqs: FAQ[] = [
   {
     question: 'How much does a whole home generator cost?',
-    answer: 'Whole home standby generators typically cost between $7,000 and $20,000 installed, depending on the generator size, brand, and complexity of the installation. Smaller units (10–16 kW) for essential circuits may start around $7,000–$12,000, while larger whole-home systems (20–22 kW and up) can range from $12,000–$20,000+. Generator Gators connects you with local installers who provide free, no-obligation quotes tailored to your home and needs.',
+    answer: 'Whole home standby generators typically cost between $7,000 and $20,000 installed, depending on the generator size, brand, and complexity of the installation. Smaller units (10–16 kW) may start around $7,000–$12,000, while larger whole-home systems (20–22 kW and up) can range from $12,000–$20,000+. Generator Gators connects you with local installers who provide free, no-obligation quotes tailored to your home.',
   },
   {
     question: 'How long does generator installation take?',
-    answer: 'A typical standby generator installation takes 1–3 days, depending on the complexity of the job, local permitting requirements, and utility coordination. Most installations can be completed in a single day once permits are approved and equipment is on-site. Your local installation partner will walk you through the expected timeline during your free quote.',
+    answer: 'A typical standby generator installation takes 1–3 days, depending on complexity, local permitting requirements, and utility coordination. Most installations can be completed in a single day once permits are approved and equipment is on-site.',
   },
   {
     question: 'What size generator do I need for my home?',
-    answer: 'Generator sizing depends on your home\'s square footage, the appliances and systems you want to power, and your electrical panel capacity. A 10–16 kW generator can typically power essential circuits (lights, refrigerator, sump pump, select outlets). A 20–22 kW generator can power most of a medium-sized home. Larger homes or homes with high-draw appliances like central AC may need a 24 kW+ unit. Our matched installers will assess your home and recommend the right size.',
+    answer: "Generator sizing depends on your home's square footage, the appliances you want to power, and your electrical panel capacity. A 10–16 kW generator handles essential circuits; 20–22 kW powers most of a medium home. Larger homes may need 24 kW+. Our matched installers will assess your home and recommend the right size.",
   },
   {
     question: 'Are standby generators automatic?',
-    answer: 'Yes — whole home standby generators are fully automatic. When utility power fails, the automatic transfer switch (ATS) detects the outage within seconds and starts the generator automatically. When utility power is restored, the generator shuts off and transfers power back — all without any action required from you. This is one of the biggest advantages over portable generators.',
+    answer: 'Yes — whole home standby generators are fully automatic. When utility power fails, the automatic transfer switch detects the outage within seconds and starts the generator automatically. When power is restored, it shuts off on its own. No action required from you.',
   },
   {
     question: 'What fuel do whole home generators run on?',
-    answer: 'Most whole home standby generators run on natural gas or liquid propane (LP). Natural gas is preferred where available, as it connects directly to your home\'s gas line for an unlimited fuel supply. Propane is an excellent option if natural gas is unavailable. Some larger generators can also run on diesel. Your installation partner will recommend the best fuel option based on your home and location.',
-  },
-  {
-    question: 'Is a permit required for generator installation?',
-    answer: 'Yes, in most jurisdictions a permit is required for standby generator installation. This typically includes an electrical permit and sometimes a gas or mechanical permit. Your vetted local installer will handle permit applications and coordinate all required inspections. Always work with a licensed professional — this protects you and ensures your generator is safe and code-compliant.',
+    answer: 'Most whole home standby generators run on natural gas or liquid propane (LP). Natural gas connects directly to your home\'s gas line for unlimited fuel supply. Propane is an excellent option if natural gas is unavailable.',
   },
   {
     question: 'How does Generator Gators work?',
-    answer: 'Generator Gators is a free matching service for homeowners. You submit a quote request, and we connect you with pre-vetted, licensed generator installation companies in your area. You receive a free, no-obligation quote and can make your own decision. We do not perform installations ourselves — we simply make finding a trusted, local professional faster and easier.',
+    answer: 'Generator Gators is a free matching service for homeowners. You submit a quote request, and we connect you with pre-vetted, licensed generator installation companies in your area. You receive a free, no-obligation quote and make your own decision. We do not perform installations ourselves.',
   },
 ];
 
 const { faqs = defaultFaqs, title = 'Frequently Asked Questions' } = Astro.props;
 ---
 
-<section class="py-16 px-4 bg-white" id="faqs">
+<section class="py-24 px-4 bg-white" id="faqs">
   <div class="max-w-3xl mx-auto">
-    <div class="text-center mb-10">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{title}</h2>
-      <p class="text-gray-600">Everything you need to know about standby generator installation.</p>
+    <div class="mb-12">
+      <h2 class="font-bold text-[#1a1a1a]" style="font-size:clamp(1.75rem,3.5vw,2.4rem); line-height:1.2;">{title}</h2>
+      <p class="text-gray-500 mt-3 text-base leading-relaxed">Everything you need to know about standby generator installation.</p>
     </div>
 
     <div class="divide-y divide-gray-200">
       {faqs.map((faq, i) => (
-        <div class="faq-item py-5">
+        <div class="faq-item py-6">
           <button
             class="faq-trigger flex items-start justify-between w-full text-left gap-4"
             aria-expanded="false"
             aria-controls={`faq-answer-${i}`}
           >
-            <span class="text-base font-semibold text-gray-900 leading-snug">{faq.question}</span>
-            <span class="faq-icon mt-0.5 shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-800 transition-transform">
+            <span class="text-base font-semibold text-[#1a1a1a] leading-snug">{faq.question}</span>
+            <span class="faq-icon mt-0.5 shrink-0 w-7 h-7 border-2 border-[#1a1a1a] flex items-center justify-center transition-transform rounded-[2px]">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
               </svg>
             </span>
           </button>
-          <div
-            id={`faq-answer-${i}`}
-            class="faq-answer hidden pt-3 pr-10"
-          >
+          <div id={`faq-answer-${i}`} class="faq-answer hidden pt-3 pr-12">
             <p class="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
           </div>
         </div>
@@ -79,25 +72,17 @@ const { faqs = defaultFaqs, title = 'Frequently Asked Questions' } = Astro.props
 
 <script>
   const items = document.querySelectorAll('.faq-item');
-
   items.forEach(item => {
     const trigger = item.querySelector('.faq-trigger') as HTMLButtonElement;
     const answer = item.querySelector('.faq-answer') as HTMLElement;
     const icon = item.querySelector('.faq-icon') as HTMLElement;
-
     trigger?.addEventListener('click', () => {
       const isOpen = !answer?.classList.contains('hidden');
-
-      // Close all others
       items.forEach(other => {
-        const otherAnswer = other.querySelector('.faq-answer') as HTMLElement;
-        const otherIcon = other.querySelector('.faq-icon') as HTMLElement;
-        const otherTrigger = other.querySelector('.faq-trigger') as HTMLButtonElement;
-        otherAnswer?.classList.add('hidden');
-        otherIcon?.style.removeProperty('transform');
-        otherTrigger?.setAttribute('aria-expanded', 'false');
+        (other.querySelector('.faq-answer') as HTMLElement)?.classList.add('hidden');
+        (other.querySelector('.faq-icon') as HTMLElement)?.style.removeProperty('transform');
+        (other.querySelector('.faq-trigger') as HTMLButtonElement)?.setAttribute('aria-expanded', 'false');
       });
-
       if (!isOpen) {
         answer?.classList.remove('hidden');
         icon.style.transform = 'rotate(180deg)';

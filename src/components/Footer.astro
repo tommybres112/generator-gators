@@ -18,27 +18,21 @@ const locationLinks = [
 ];
 ---
 
-<footer class="bg-gray-900 text-gray-300">
-  <!-- Main Footer -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<footer class="bg-[#1a1a1a] text-gray-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-      <!-- Brand Column -->
+      <!-- Brand -->
       <div class="lg:col-span-1">
-        <a href="/" class="inline-block mb-4">
-          <img
-            src="/logo.png"
-            alt="Generator Gators"
-            class="h-24 w-auto"
-          />
+        <a href="/" class="inline-block mb-5">
+          <img src="/logo-header.png" alt="Generator Gators" class="h-12 w-auto brightness-0 invert" />
         </a>
-        <p class="text-sm text-gray-400 leading-relaxed mb-4">
-          Generator Gators connects homeowners with vetted local standby generator installation partners across Long Island and New York City.
+        <p class="text-sm text-gray-500 leading-relaxed mb-6">
+          Connecting Long Island and NYC homeowners with vetted local standby generator installation partners.
         </p>
         <a
           href={`tel:${phone.replace(/-/g, '')}`}
-          class="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-sm px-4 py-2 rounded-lg transition-colors"
-          aria-label={`Call us at ${phone}`}
+          class="inline-flex items-center gap-2 bg-[#f5e642] hover:bg-yellow-300 text-[#1a1a1a] font-bold text-sm px-5 py-2.5 rounded-[4px] transition-colors"
         >
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
@@ -49,61 +43,48 @@ const locationLinks = [
 
       <!-- Services -->
       <div>
-        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Services</h3>
-        <ul class="space-y-2">
+        <h3 class="text-white font-semibold text-xs uppercase tracking-widest mb-5">Services</h3>
+        <ul class="space-y-3">
           {serviceLinks.map(link => (
-            <li>
-              <a href={link.href} class="text-sm text-gray-400 hover:text-yellow-400 transition-colors">
-                {link.label}
-              </a>
-            </li>
+            <li><a href={link.href} class="text-sm text-gray-500 hover:text-[#f5e642] transition-colors">{link.label}</a></li>
           ))}
         </ul>
       </div>
 
-      <!-- Service Areas -->
+      <!-- Locations -->
       <div>
-        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Service Areas</h3>
-        <ul class="space-y-2">
+        <h3 class="text-white font-semibold text-xs uppercase tracking-widest mb-5">Service Areas</h3>
+        <ul class="space-y-3">
           {locationLinks.map(link => (
-            <li>
-              <a href={link.href} class="text-sm text-gray-400 hover:text-yellow-400 transition-colors">
-                {link.label}
-              </a>
-            </li>
+            <li><a href={link.href} class="text-sm text-gray-500 hover:text-[#f5e642] transition-colors">{link.name || link.label}</a></li>
           ))}
         </ul>
       </div>
 
       <!-- Company -->
       <div>
-        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Company</h3>
-        <ul class="space-y-2 mb-6">
-          <li><a href="/about" class="text-sm text-gray-400 hover:text-yellow-400 transition-colors">About Us</a></li>
-          <li><a href="/contact" class="text-sm text-gray-400 hover:text-yellow-400 transition-colors">Contact</a></li>
-          <li><a href="/privacy-policy" class="text-sm text-gray-400 hover:text-yellow-400 transition-colors">Privacy Policy</a></li>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-widest mb-5">Company</h3>
+        <ul class="space-y-3 mb-8">
+          <li><a href="/about" class="text-sm text-gray-500 hover:text-[#f5e642] transition-colors">About Us</a></li>
+          <li><a href="/contact" class="text-sm text-gray-500 hover:text-[#f5e642] transition-colors">Contact</a></li>
+          <li><a href="/privacy-policy" class="text-sm text-gray-500 hover:text-[#f5e642] transition-colors">Privacy Policy</a></li>
         </ul>
-        <div class="bg-green-900 rounded-lg p-4">
-          <p class="text-xs text-green-200 leading-relaxed">
-            <strong class="text-white">Not a direct installer.</strong> Generator Gators is a referral and matching service. We connect homeowners with vetted local installation partners.
+        <div class="border border-gray-800 p-4 rounded-[4px]">
+          <p class="text-xs text-gray-600 leading-relaxed">
+            <strong class="text-gray-400">Not a direct installer.</strong> We are a referral and matching service connecting homeowners with vetted local professionals.
           </p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bottom Bar -->
   <div class="border-t border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
-      <p class="text-xs text-gray-500">
-        &copy; {currentYear} Generator Gators. All rights reserved.
-      </p>
-      <p class="text-xs text-gray-500 text-center">
-        Generator Gators is a referral service. We are not licensed contractors or installers.
-      </p>
+      <p class="text-xs text-gray-700">&copy; {currentYear} Generator Gators. All rights reserved.</p>
+      <p class="text-xs text-gray-700 text-center">Generator Gators is a referral service, not a licensed contractor.</p>
       <div class="flex gap-4">
-        <a href="/privacy-policy" class="text-xs text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a>
-        <a href="/contact" class="text-xs text-gray-500 hover:text-gray-300 transition-colors">Contact</a>
+        <a href="/privacy-policy" class="text-xs text-gray-700 hover:text-gray-400 transition-colors">Privacy</a>
+        <a href="/contact" class="text-xs text-gray-700 hover:text-gray-400 transition-colors">Contact</a>
       </div>
     </div>
   </div>

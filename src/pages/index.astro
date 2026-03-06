@@ -43,120 +43,100 @@ const schema = [
   schema={schema}
 >
 
-  <!-- HERO SECTION -->
-  <section class="bg-gradient-to-br from-green-900 via-green-800 to-green-700 text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10" aria-hidden="true">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)"/>
-      </svg>
-    </div>
+  <!-- HERO -->
+  <section class="bg-[#1a3a2a] text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-28 pb-0">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <div class="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-400/40 text-yellow-300 text-sm font-semibold px-3 py-1.5 rounded-full mb-6">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-              <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-            </svg>
-            Long Island & NYC's Generator Matching Service
+        <!-- Left: Copy -->
+        <div class="pb-20 lg:pb-28">
+          <!-- Eyebrow -->
+          <div class="inline-flex items-center gap-2 mb-7">
+            <span class="w-5 h-[2px] bg-[#f5e642]"></span>
+            <span class="text-[#f5e642] text-xs font-semibold tracking-widest uppercase">Long Island &amp; NYC</span>
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-            Never Lose <span class="text-yellow-400">Power</span> Again
+          <h1
+            class="font-extrabold text-white mb-5"
+            style="font-size:clamp(2.4rem,4.5vw,3.75rem); line-height:1.15; letter-spacing:-0.02em;"
+          >
+            Never Lose<br />
+            <span style="color:#f5e642;">Power</span> Again.
           </h1>
 
-          <p class="text-lg md:text-xl text-green-100 mb-8 leading-relaxed max-w-lg">
-            Generator Gators connects homeowners with trusted local standby generator installers across Long Island and NYC. Get matched with a vetted pro and receive a free quote today.
+          <p class="text-white/65 leading-relaxed mb-9" style="font-size:1.05rem; max-width:28rem;">
+            We connect Long Island and NYC homeowners with vetted, licensed standby generator installers. Free matching. No obligation. Quote in 24 hours.
           </p>
 
-          <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <div class="flex flex-col sm:flex-row gap-3 mb-8">
             <a
               href="#quote-form"
-              class="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg"
+              class="inline-flex items-center justify-center gap-2 font-semibold text-sm px-7 py-3.5 rounded-[4px] transition-colors"
+              style="background:#f5e642; color:#1a1a1a; letter-spacing:0.01em;"
             >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-              </svg>
               Get a Free Quote
             </a>
             <a
               href={`tel:${phone.replace(/-/g, '')}`}
-              class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors"
+              class="inline-flex items-center justify-center gap-2 border border-white/20 text-white/80 font-medium text-sm px-7 py-3.5 rounded-[4px] hover:bg-white/8 transition-colors"
               aria-label={`Call us at ${phone}`}
+              style="letter-spacing:0.01em;"
             >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
               </svg>
-              Call {phone}
+              {phone}
             </a>
           </div>
 
-          <div class="flex flex-wrap gap-4 text-sm text-green-200">
-            {['100% Free Matching', 'Vetted Local Installers', 'No Obligation'].map(item => (
-              <div class="flex items-center gap-1.5">
-                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
+          <!-- Trust row -->
+          <div class="flex flex-wrap gap-x-5 gap-y-2">
+            {['Free to Homeowners', 'Vetted Local Installers', 'No Obligation'].map(item => (
+              <span class="flex items-center gap-2 text-sm text-white/55">
+                <span class="w-4 h-4 rounded-[2px] flex items-center justify-center shrink-0" style="background:#f5e642;">
+                  <svg class="w-2.5 h-2.5" fill="none" stroke="#1a1a1a" stroke-width="3" viewBox="0 0 12 12" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M1.5 6l3 3 6-6"/>
+                  </svg>
+                </span>
                 {item}
-              </div>
+              </span>
             ))}
           </div>
         </div>
 
-        <div class="flex justify-center lg:justify-end">
-          <div class="relative">
-            <div class="absolute inset-0 bg-yellow-400/20 rounded-full blur-3xl scale-75" aria-hidden="true"></div>
-            <MascotSVG class="relative drop-shadow-2xl" width={360} height={360} />
-          </div>
+        <!-- Right: Mascot -->
+        <div class="hidden lg:flex justify-end items-end relative">
+          <!-- Subtle warm glow behind mascot -->
+          <div
+            class="absolute bottom-0 right-0 pointer-events-none"
+            aria-hidden="true"
+            style="width:420px; height:420px; background:radial-gradient(ellipse at 50% 85%, rgba(245,230,66,0.10) 0%, transparent 65%); border-radius:50%;"
+          ></div>
+          <MascotSVG width={370} height={370} />
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- WHY CHOOSE US -->
-  <section class="py-16 px-4 bg-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Why Homeowners Choose Generator Gators
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          We make finding a trusted, local standby generator installer simple, fast, and completely free.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <!-- STATS BAR -->
+  <section class="bg-[#1a1a1a]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/8">
         {[
-          {
-            icon: '🔒',
-            title: 'Vetted Licensed Partners',
-            desc: 'Every installer in our network is licensed, insured, and background-checked. We do the vetting so you don\'t have to.',
-          },
-          {
-            icon: '🏠',
-            title: 'Whole-Home Coverage',
-            desc: 'We specialize in connecting homeowners with installers who handle complete whole-home standby generator systems.',
-          },
-          {
-            icon: '⚡',
-            title: 'Fast Response Times',
-            desc: 'Our matched installers respond quickly. Most homeowners receive a quote within 24 hours of their request.',
-          },
-          {
-            icon: '💬',
-            title: 'Free Installation Estimates',
-            desc: 'No cost, no obligation. Every homeowner gets a free, detailed quote from a local installation professional.',
-          },
-        ].map(item => (
-          <div class="bg-green-50 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
-            <div class="text-4xl mb-4" aria-hidden="true">{item.icon}</div>
-            <h3 class="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+          { num: '500+', label: 'Installs Facilitated' },
+          { num: '24hr', label: 'Average Response Time' },
+          { num: '100%', label: 'Free to Homeowners' },
+          { num: '4',    label: 'Service Regions' },
+        ].map(s => (
+          <div class="flex flex-col items-center justify-center py-9 px-5 text-center">
+            <span
+              class="font-extrabold leading-none"
+              style="font-size:2.6rem; color:#f5e642; letter-spacing:-0.02em;"
+            >
+              {s.num}
+            </span>
+            <span class="text-white/40 text-xs font-medium tracking-wider uppercase mt-2">{s.label}</span>
           </div>
         ))}
       </div>
@@ -164,52 +144,58 @@ const schema = [
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="py-16 px-4 bg-gray-50">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
-        <p class="text-gray-600 text-lg">Three simple steps to whole-home backup power.</p>
+  <section class="bg-white py-24 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-14">
+        <p class="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-3">Simple Process</p>
+        <h2
+          class="font-extrabold text-[#1a1a1a]"
+          style="font-size:clamp(1.75rem,3.5vw,2.5rem); line-height:1.2; letter-spacing:-0.02em;"
+        >
+          Get matched in three steps.
+        </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[2px] bg-gray-150 rounded-[6px] overflow-hidden" style="background:#e5e7eb;">
         {[
           {
-            step: '1',
+            num: '01',
             title: 'Tell Us About Your Home',
-            desc: 'Fill out our simple quote form with your name, phone number, zip code, and backup power needs. It takes less than 60 seconds.',
-            icon: '📋',
+            desc: 'Fill out our quick form with your zip code and power needs. Takes under 60 seconds.',
           },
           {
-            step: '2',
+            num: '02',
             title: 'Get Matched With a Pro',
-            desc: 'We connect you with a vetted, licensed standby generator installer in your local area — someone who knows your region, codes, and utility providers.',
-            icon: '🤝',
+            desc: 'We connect you with a vetted, licensed installer in your area — one who knows local codes, permits, and utility requirements.',
           },
           {
-            step: '3',
+            num: '03',
             title: 'Receive Your Free Quote',
-            desc: 'Your matched installer reaches out to schedule a site visit and provide a free, detailed installation quote. No obligations whatsoever.',
-            icon: '🎉',
+            desc: 'Your installer contacts you to schedule a site visit and provide a free, detailed installation quote. Zero obligation.',
           },
-        ].map(item => (
-          <div class="flex flex-col items-center text-center">
-            <div class="w-20 h-20 bg-green-800 rounded-full flex items-center justify-center text-white text-2xl font-extrabold mb-5 shadow-lg">
-              {item.step}
-            </div>
-            <div class="text-3xl mb-3" aria-hidden="true">{item.icon}</div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+        ].map((step, i) => (
+          <div class="bg-white px-9 pt-9 pb-10">
+            <span
+              class="block font-extrabold leading-none mb-6"
+              style={`font-size:2.75rem; color:#f5e642; letter-spacing:-0.02em;`}
+              aria-hidden="true"
+            >
+              {step.num}
+            </span>
+            <h3 class="font-bold text-[#1a1a1a] mb-3" style="font-size:1.05rem;">{step.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
           </div>
         ))}
       </div>
 
-      <div class="text-center mt-10">
+      <div class="mt-9">
         <a
           href="#quote-form"
-          class="inline-flex items-center gap-2 bg-green-800 hover:bg-green-700 text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-md"
+          class="inline-flex items-center gap-2 font-semibold text-sm px-7 py-3.5 rounded-[4px] transition-colors"
+          style="background:#1a3a2a; color:#fff; letter-spacing:0.01em;"
         >
-          Start My Generator Quote
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          Start My Free Quote
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
         </a>
@@ -218,32 +204,39 @@ const schema = [
   </section>
 
   <!-- ABOUT STANDBY GENERATORS -->
-  <section class="py-16 px-4 bg-white">
+  <section class="bg-[#1a3a2a] py-24 px-4 text-white">
     <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
         <div>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-5">
-            Whole Home Generator Installation
+          <p class="text-xs font-semibold tracking-widest uppercase text-white/35 mb-3">What You're Getting</p>
+          <h2
+            class="font-extrabold text-white mb-6"
+            style="font-size:clamp(1.75rem,3.5vw,2.5rem); line-height:1.2; letter-spacing:-0.02em;"
+          >
+            Whole Home Generator<br />Installation
           </h2>
-          <p class="text-gray-600 mb-5 leading-relaxed">
-            A standby generator is a permanently installed backup power system that automatically turns on when your utility power fails. Unlike portable generators, standby units run on natural gas or propane, require zero effort to operate, and can power your entire home.
+          <p class="text-white/60 leading-relaxed mb-5 text-sm">
+            A standby generator is permanently installed and turns on automatically when your utility power fails. It runs on natural gas or propane — no manual start, no refueling — and can power your entire home without any action from you.
           </p>
-          <p class="text-gray-600 mb-6 leading-relaxed">
-            For homeowners in Long Island and NYC, where nor'easters, hurricanes, and summer storms regularly cause extended outages, a whole-home standby generator is one of the most valuable investments you can make.
+          <p class="text-white/60 leading-relaxed mb-8 text-sm">
+            For homeowners in Long Island and NYC, where nor'easters and summer storms routinely cause multi-day outages, a whole-home standby generator is one of the most valuable investments you can make.
           </p>
 
-          <ul class="space-y-3 mb-8">
+          <ul class="space-y-3 mb-10">
             {[
               'Automatic activation — no manual start required',
               'Powers your entire home, not just select circuits',
               'Runs on natural gas or propane — no refueling',
-              'Adds resale value to your home',
-              'Peace of mind during storm season',
+              'Adds measurable resale value to your home',
+              'Peace of mind throughout storm season',
             ].map(point => (
-              <li class="flex items-start gap-3 text-gray-700">
-                <svg class="w-5 h-5 text-green-700 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
+              <li class="flex items-start gap-3 text-white/75 text-sm">
+                <span class="w-5 h-5 rounded-[2px] flex items-center justify-center shrink-0 mt-0.5" style="background:#f5e642;">
+                  <svg class="w-3 h-3" fill="none" stroke="#1a1a1a" stroke-width="3" viewBox="0 0 12 12" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M1.5 6l3 3 6-6"/>
+                  </svg>
+                </span>
                 {point}
               </li>
             ))}
@@ -251,7 +244,8 @@ const schema = [
 
           <a
             href="/whole-home-generator-installation"
-            class="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6 py-3 rounded-lg transition-colors"
+            class="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-[4px] transition-colors"
+            style="background:#f5e642; color:#1a1a1a; letter-spacing:0.01em;"
           >
             Learn About Generator Installation
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -260,25 +254,34 @@ const schema = [
           </a>
         </div>
 
-        <div class="bg-green-800 rounded-2xl p-8 text-white">
-          <h3 class="text-xl font-bold mb-6">Why Homeowners Install Standby Generators</h3>
-          <div class="space-y-5">
+        <!-- Key numbers -->
+        <div class="border border-white/10 rounded-[6px] overflow-hidden">
+          <div class="px-8 py-5 border-b border-white/10">
+            <p class="text-xs font-semibold tracking-widest uppercase text-white/35">Key Numbers</p>
+          </div>
+          <div class="divide-y divide-white/10">
             {[
-              { stat: '72hrs+', label: 'Average outage duration after major storms on Long Island' },
+              { stat: '72 hrs+', label: 'Average outage duration after major storms on Long Island' },
               { stat: '$7K–$20K', label: 'Typical installed cost for a whole-home standby generator' },
-              { stat: '10 sec', label: 'Time for a standby generator to automatically turn on' },
+              { stat: '10 sec', label: 'Time for a standby generator to automatically activate' },
               { stat: '#1', label: 'Most requested home improvement after storm events in the Northeast' },
             ].map(item => (
-              <div class="flex items-start gap-4">
-                <div class="text-2xl font-extrabold text-yellow-400 w-24 shrink-0">{item.stat}</div>
-                <p class="text-green-100 text-sm leading-snug">{item.label}</p>
+              <div class="flex items-center gap-6 px-8 py-6">
+                <span
+                  class="font-extrabold shrink-0 w-28 leading-tight"
+                  style="font-size:1.35rem; color:#f5e642; letter-spacing:-0.01em;"
+                >
+                  {item.stat}
+                </span>
+                <p class="text-white/55 text-sm leading-snug">{item.label}</p>
               </div>
             ))}
           </div>
-          <div class="mt-8 pt-6 border-t border-green-700">
+          <div class="px-8 py-5 border-t border-white/10">
             <a
               href="/generator-installation-cost"
-              class="text-yellow-400 hover:text-yellow-300 font-semibold text-sm flex items-center gap-2 transition-colors"
+              class="inline-flex items-center gap-2 text-sm font-medium transition-colors"
+              style="color:#f5e642;"
             >
               See detailed cost breakdown
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -287,97 +290,147 @@ const schema = [
             </a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- AREAS WE SERVE -->
-  <section class="py-16 px-4 bg-gray-50">
+  <section class="bg-white py-24 px-4">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Areas We Serve</h2>
-        <p class="text-gray-600 text-lg">
-          Generator Gators connects homeowners with vetted installers across Long Island and New York City.
-        </p>
+      <div class="mb-14">
+        <p class="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-3">Coverage</p>
+        <h2
+          class="font-extrabold text-[#1a1a1a]"
+          style="font-size:clamp(1.75rem,3.5vw,2.5rem); line-height:1.2; letter-spacing:-0.02em;"
+        >
+          Areas We Serve
+        </h2>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+      <!-- Pixel-gap grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-[2px] rounded-[6px] overflow-hidden mb-8" style="background:#e5e7eb;">
         {[
-          { name: 'Brooklyn, NY', href: '/locations/brooklyn-ny', desc: 'Serving Brooklyn homeowners with reliable standby generator installation.', emoji: '🏙️' },
-          { name: 'Queens, NY', href: '/locations/queens-ny', desc: 'Connecting Queens residents with trusted local generator installers.', emoji: '🌆' },
-          { name: 'Nassau County, NY', href: '/locations/nassau-county-ny', desc: 'Whole-home generator installation across Nassau County communities.', emoji: '🏡' },
-          { name: 'Suffolk County, NY', href: '/locations/suffolk-county-ny', desc: 'Generator installation partners serving all of Suffolk County.', emoji: '🌳' },
-          { name: 'New York City', href: '/locations', desc: 'Serving all five NYC boroughs through our vetted installer network.', emoji: '🗽' },
-          { name: 'Your Area?', href: '/contact', desc: 'Don\'t see your town? Contact us — our network is always growing.', emoji: '📍' },
+          { name: 'Brooklyn, NY',   href: '/locations/brooklyn-ny',     sub: 'New York City' },
+          { name: 'Queens, NY',     href: '/locations/queens-ny',        sub: 'New York City' },
+          { name: 'Nassau County',  href: '/locations/nassau-county-ny', sub: 'Long Island' },
+          { name: 'Suffolk County', href: '/locations/suffolk-county-ny',sub: 'Long Island' },
         ].map(area => (
           <a
             href={area.href}
-            class="bg-white rounded-xl p-6 border border-gray-200 hover:border-green-500 hover:shadow-md transition-all group"
+            class="group bg-white hover:bg-[#1a3a2a] transition-colors duration-200 px-7 py-9 flex flex-col justify-between min-h-[160px]"
           >
-            <div class="text-3xl mb-3" aria-hidden="true">{area.emoji}</div>
-            <h3 class="font-bold text-gray-900 text-lg mb-1 group-hover:text-green-800 transition-colors">{area.name}</h3>
-            <p class="text-gray-600 text-sm">{area.desc}</p>
-            <span class="inline-flex items-center gap-1 text-green-700 font-semibold text-sm mt-3">
+            <div>
+              <p class="text-xs font-semibold tracking-widest uppercase text-gray-400 group-hover:text-white/35 mb-2.5 transition-colors">{area.sub}</p>
+              <h3
+                class="font-bold text-[#1a1a1a] group-hover:text-white transition-colors leading-snug"
+                style="font-size:1.15rem; letter-spacing:-0.01em;"
+              >
+                {area.name}
+              </h3>
+            </div>
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium mt-5 text-gray-400 group-hover:text-[#f5e642] transition-colors">
               View area
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
             </span>
           </a>
         ))}
       </div>
+
+      <a
+        href="/locations"
+        class="inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-[#1a3a2a] transition-colors"
+      >
+        View all service areas
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
     </div>
   </section>
 
   <!-- POWER OUTAGE PREPAREDNESS -->
-  <section class="py-16 px-4 bg-yellow-50 border-y border-yellow-100">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Power Outage Preparedness</h2>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-          Why do Long Island and NYC homeowners install standby generators? Because losing power isn't just an inconvenience — it can be a serious health and safety risk.
-        </p>
+  <section class="py-24 px-4" style="background:#f5e642;">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-14">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color:rgba(26,26,26,0.45);">Why It Matters</p>
+        <h2
+          class="font-extrabold"
+          style="font-size:clamp(1.75rem,3.5vw,2.5rem); line-height:1.2; letter-spacing:-0.02em; color:#1a1a1a;"
+        >
+          Power Outage Preparedness
+        </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[2px] rounded-[6px] overflow-hidden" style="background:#e8d800;">
         {[
-          { icon: '🌀', title: 'Storm Season on Long Island', desc: 'Long Island regularly experiences nor\'easters, tropical storms, and hurricanes that knock out power for days. A standby generator means your family stays safe and comfortable no matter what the weather brings.' },
-          { icon: '🏥', title: 'Medical Needs & Safety', desc: 'For households with oxygen concentrators, CPAP machines, or refrigerated medications — a reliable backup power source isn\'t optional, it\'s essential.' },
-          { icon: '🏠', title: 'Home Protection', desc: 'Power outages lead to frozen pipes, basement flooding if your sump pump loses power, and spoiled food. A standby generator keeps your home protected.' },
-          { icon: '💼', title: 'Work From Home', desc: 'With more homeowners working remotely, a power outage means missed deadlines and lost income. Standby power keeps you connected and productive.' },
+          {
+            title: 'Storm Season on Long Island',
+            desc: "Long Island regularly faces nor'easters, tropical storms, and hurricanes that knock out power for days at a time. A standby generator means your household stays safe and comfortable regardless of what the weather brings.",
+          },
+          {
+            title: 'Medical Needs & Safety',
+            desc: 'For households with oxygen concentrators, CPAP machines, or refrigerated medications, reliable backup power is essential — not a luxury.',
+          },
+          {
+            title: 'Home Protection',
+            desc: 'Power outages lead to frozen pipes, basement flooding when sump pumps fail, and thousands in spoiled food. Standby power keeps your home protected around the clock.',
+          },
+          {
+            title: 'Work From Home',
+            desc: 'With more homeowners working remotely, a power outage means missed deadlines and lost income. Standby power keeps you connected and productive.',
+          },
         ].map(item => (
-          <div class="bg-white rounded-xl p-6 border border-yellow-200 flex gap-4">
-            <div class="text-3xl shrink-0" aria-hidden="true">{item.icon}</div>
-            <div>
-              <h3 class="font-bold text-gray-900 mb-2">{item.title}</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-            </div>
+          <div class="px-9 py-9" style="background:#f5e642;">
+            <h3 class="font-bold mb-2.5" style="font-size:1rem; color:#1a1a1a; letter-spacing:-0.01em;">{item.title}</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(26,26,26,0.6);">{item.desc}</p>
           </div>
         ))}
+      </div>
+
+      <div class="mt-10">
+        <a
+          href="#quote-form"
+          class="inline-flex items-center gap-2 font-semibold text-sm px-7 py-3.5 rounded-[4px] transition-colors"
+          style="background:#1a3a2a; color:#fff; letter-spacing:0.01em;"
+        >
+          Get Protected — Free Quote
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- QUOTE FORM -->
   <QuoteForm
-    title="Get Your Free Generator Quote Today"
-    subtitle="Fill out the form and we'll match you with a vetted local standby generator installer in your area."
+    title="Get Your Free Generator Quote"
+    subtitle="Fill out the form and we'll match you with a vetted local standby generator installer — usually within 24 hours."
   />
 
-  <!-- TRUST BADGES -->
-  <section class="py-10 px-4 bg-white border-t border-gray-100">
+  <!-- TRUST ROW -->
+  <section class="bg-white py-14 px-4 border-t border-gray-100">
     <div class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
         {[
-          { icon: '✅', label: 'Vetted Partners', sub: 'Licensed & insured' },
-          { icon: '🆓', label: 'Free Estimates', sub: 'No obligation quotes' },
-          { icon: '📍', label: 'Local Experts', sub: 'Serving your area' },
-          { icon: '⚡', label: 'Fast Response', sub: 'Quote within 24 hrs' },
+          { label: 'Vetted Partners',  sub: 'Licensed & insured' },
+          { label: 'Free Estimates',   sub: 'No obligation quotes' },
+          { label: 'Local Experts',    sub: 'Serving your area' },
+          { label: 'Fast Response',    sub: 'Quote within 24 hrs' },
         ].map(badge => (
-          <div class="flex flex-col items-center">
-            <div class="text-3xl mb-2" aria-hidden="true">{badge.icon}</div>
-            <div class="font-bold text-gray-900 text-sm">{badge.label}</div>
-            <div class="text-gray-500 text-xs">{badge.sub}</div>
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-[3px] flex items-center justify-center shrink-0 mt-0.5" style="background:#f5e642;">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="#1a1a1a" stroke-width="2.5" viewBox="0 0 16 16" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2 8l4 4 8-8"/>
+              </svg>
+            </span>
+            <div>
+              <div class="font-semibold text-[#1a1a1a] text-sm leading-snug">{badge.label}</div>
+              <div class="text-gray-400 text-xs mt-0.5">{badge.sub}</div>
+            </div>
           </div>
         ))}
       </div>
@@ -388,10 +441,11 @@ const schema = [
   <FAQSection />
 
   <!-- MOBILE STICKY CTA -->
-  <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 z-40 flex gap-3">
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 flex gap-[2px]" style="background:#1a1a1a;">
     <a
       href={`tel:${phone.replace(/-/g, '')}`}
-      class="flex-1 flex items-center justify-center gap-2 bg-green-800 text-white font-bold py-3 rounded-lg text-sm"
+      class="flex-1 flex items-center justify-center gap-2 font-semibold py-4 text-sm"
+      style="background:#1a3a2a; color:#fff;"
       aria-label={`Call us at ${phone}`}
     >
       <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -401,11 +455,9 @@ const schema = [
     </a>
     <a
       href="#quote-form"
-      class="flex-1 flex items-center justify-center gap-2 bg-yellow-400 text-gray-900 font-bold py-3 rounded-lg text-sm"
+      class="flex-1 flex items-center justify-center font-semibold py-4 text-sm"
+      style="background:#f5e642; color:#1a1a1a;"
     >
-      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-      </svg>
       Free Quote
     </a>
   </div>

@@ -2,155 +2,69 @@
 interface Props {
   title?: string;
   subtitle?: string;
-  dark?: boolean;
 }
 
 const {
   title = 'Get Your Free Generator Quote',
-  subtitle = 'Tell us about your home and we\'ll connect you with a trusted local installer.',
-  dark = false,
+  subtitle = "Tell us about your home and we'll connect you with a trusted local installer.",
 } = Astro.props;
 
-// Replace with your actual Formspree form ID
 const FORMSPREE_ID = 'YOUR_FORMSPREE_FORM_ID';
 const FORM_ACTION = `https://formspree.io/f/${FORMSPREE_ID}`;
 ---
 
-<section class={`py-16 px-4 ${dark ? 'bg-gray-900' : 'bg-green-50'}`} id="quote-form">
+<section class="py-24 px-4 bg-[#1a3a2a]" id="quote-form">
   <div class="max-w-2xl mx-auto">
-    <div class={`rounded-2xl shadow-xl p-8 md:p-10 ${dark ? 'bg-gray-800' : 'bg-white'}`}>
-      <div class="text-center mb-8">
-        <div class="inline-flex items-center justify-center w-12 h-12 bg-yellow-400 rounded-full mb-4">
-          <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-          </svg>
+    <div class="mb-10">
+      <h2 class="font-bold text-white mb-3" style="font-size:clamp(1.75rem,3.5vw,2.4rem); line-height:1.2;">{title}</h2>
+      <p class="text-base text-white/60 leading-relaxed">{subtitle}</p>
+    </div>
+
+    <form action={FORM_ACTION} method="POST" class="space-y-4" novalidate>
+      <input type="hidden" name="_next" value="https://www.generatorgators.com/thank-you" />
+      <input type="text" name="_gotcha" style="display:none" />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label for="name" class="block text-sm font-semibold mb-1.5 text-green-100">Full Name <span class="text-[#f5e642]">*</span></label>
+          <input type="text" id="name" name="name" required placeholder="John Smith"
+            class="w-full px-4 py-3.5 rounded-[4px] border border-white/20 bg-white/10 text-white placeholder-green-300/50 text-sm focus:ring-2 focus:ring-[#f5e642] focus:border-transparent outline-none transition-all" />
         </div>
-        <h2 class={`text-2xl md:text-3xl font-bold mb-2 ${dark ? 'text-white' : 'text-gray-900'}`}>{title}</h2>
-        <p class={`${dark ? 'text-gray-300' : 'text-gray-600'}`}>{subtitle}</p>
+        <div>
+          <label for="phone" class="block text-sm font-semibold mb-1.5 text-green-100">Phone Number <span class="text-[#f5e642]">*</span></label>
+          <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000"
+            class="w-full px-4 py-3.5 rounded-[4px] border border-white/20 bg-white/10 text-white placeholder-green-300/50 text-sm focus:ring-2 focus:ring-[#f5e642] focus:border-transparent outline-none transition-all" />
+        </div>
       </div>
 
-      <form
-        action={FORM_ACTION}
-        method="POST"
-        class="space-y-5"
-        novalidate
-      >
-        <!-- Redirect to thank-you page after submission -->
-        <input type="hidden" name="_next" value="https://www.generatorgators.com/thank-you" />
-        <!-- Spam honeypot -->
-        <input type="text" name="_gotcha" style="display:none" />
+      <div>
+        <label for="zip" class="block text-sm font-semibold mb-1.5 text-green-100">Zip Code <span class="text-[#f5e642]">*</span></label>
+        <input type="text" id="zip" name="zip" required placeholder="e.g. 11201" maxlength="10"
+          class="w-full px-4 py-3.5 rounded-[4px] border border-white/20 bg-white/10 text-white placeholder-green-300/50 text-sm focus:ring-2 focus:ring-[#f5e642] focus:border-transparent outline-none transition-all" />
+      </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <!-- Name -->
-          <div>
-            <label
-              for="name"
-              class={`block text-sm font-semibold mb-1.5 ${dark ? 'text-gray-200' : 'text-gray-700'}`}
-            >
-              Full Name <span class="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              placeholder="John Smith"
-              class={`w-full px-4 py-3 rounded-lg border text-sm focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all ${
-                dark
-                  ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
-                  : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
-              }`}
-            />
-          </div>
+      <div>
+        <label for="service" class="block text-sm font-semibold mb-1.5 text-green-100">What do you need help with? <span class="text-[#f5e642]">*</span></label>
+        <select id="service" name="service" required
+          class="w-full px-4 py-3.5 rounded-[4px] border border-white/20 bg-[#1a3a2a] text-white text-sm focus:ring-2 focus:ring-[#f5e642] focus:border-transparent outline-none transition-all appearance-none">
+          <option value="" disabled selected>Select a service...</option>
+          <option value="whole-home-generator-installation">Whole Home Generator Installation</option>
+          <option value="generator-quote">Free Generator Quote</option>
+          <option value="generator-sizing">Generator Sizing / Consultation</option>
+          <option value="generator-replacement">Generator Replacement</option>
+          <option value="other">Other / General Inquiry</option>
+        </select>
+      </div>
 
-          <!-- Phone -->
-          <div>
-            <label
-              for="phone"
-              class={`block text-sm font-semibold mb-1.5 ${dark ? 'text-gray-200' : 'text-gray-700'}`}
-            >
-              Phone Number <span class="text-red-500">*</span>
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              required
-              placeholder="(555) 000-0000"
-              class={`w-full px-4 py-3 rounded-lg border text-sm focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all ${
-                dark
-                  ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
-                  : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
-              }`}
-            />
-          </div>
-        </div>
+      <button type="submit"
+        class="w-full bg-[#f5e642] hover:bg-yellow-300 text-[#1a1a1a] font-bold text-base py-4 rounded-[4px] transition-colors flex items-center justify-center gap-2 mt-2">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+        </svg>
+        Get My Generator Quote
+      </button>
 
-        <!-- Zip Code -->
-        <div>
-          <label
-            for="zip"
-            class={`block text-sm font-semibold mb-1.5 ${dark ? 'text-gray-200' : 'text-gray-700'}`}
-          >
-            Zip Code <span class="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            id="zip"
-            name="zip"
-            required
-            placeholder="e.g. 11201"
-            maxlength="10"
-            class={`w-full px-4 py-3 rounded-lg border text-sm focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all ${
-              dark
-                ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
-                : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
-            }`}
-          />
-        </div>
-
-        <!-- What do you need -->
-        <div>
-          <label
-            for="service"
-            class={`block text-sm font-semibold mb-1.5 ${dark ? 'text-gray-200' : 'text-gray-700'}`}
-          >
-            What do you need help with? <span class="text-red-500">*</span>
-          </label>
-          <select
-            id="service"
-            name="service"
-            required
-            class={`w-full px-4 py-3 rounded-lg border text-sm focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all appearance-none bg-no-repeat ${
-              dark
-                ? 'bg-gray-700 border-gray-600 text-white'
-                : 'bg-white border-gray-300 text-gray-900'
-            }`}
-          >
-            <option value="" disabled selected>Select a service...</option>
-            <option value="whole-home-generator-installation">Whole Home Generator Installation</option>
-            <option value="generator-quote">Free Generator Quote</option>
-            <option value="generator-sizing">Generator Sizing / Consultation</option>
-            <option value="generator-replacement">Generator Replacement</option>
-            <option value="other">Other / General Inquiry</option>
-          </select>
-        </div>
-
-        <!-- Submit -->
-        <button
-          type="submit"
-          class="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-base py-4 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-          </svg>
-          Get My Generator Quote
-        </button>
-
-        <p class={`text-xs text-center ${dark ? 'text-gray-400' : 'text-gray-500'}`}>
-          Free, no-obligation quote. We'll connect you with a vetted local installer within 24 hours.
-        </p>
-      </form>
-    </div>
+      <p class="text-xs text-green-300/70 text-center">Free, no-obligation quote. We'll connect you with a vetted local installer within 24 hours.</p>
+    </form>
   </div>
 </section>
