@@ -19,10 +19,9 @@ const FORM_ACTION = 'https://formspree.io/f/xnjgvpkv';
       <p class="text-base text-white/60 leading-relaxed">{subtitle}</p>
     </div>
 
-    <form action={FORM_ACTION} method="POST" class="space-y-4" novalidate>
-      <input type="hidden" name="_next" value="https://generatorgators.com/thank-you" />
+    <form id="quote-form-el" action={FORM_ACTION} method="POST" class="space-y-4" novalidate>
       <input type="hidden" name="_subject" value="New Lead - Generator Gators" />
-      <input type="text" name="_gotcha" style="display:none" />
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
@@ -56,15 +55,75 @@ const FORM_ACTION = 'https://formspree.io/f/xnjgvpkv';
         </select>
       </div>
 
-      <button type="submit"
+      <!-- Error message -->
+      <p id="form-error" class="hidden text-sm text-red-300 text-center py-2">
+        Something went wrong. Please try again or call us at <a href="tel:5165187178" class="underline">516-518-7178</a>.
+      </p>
+
+      <button type="submit" id="form-submit"
         class="w-full bg-[#f5e642] hover:bg-yellow-300 text-[#1a1a1a] font-bold text-base py-4 rounded-[4px] transition-colors flex items-center justify-center gap-2 mt-2">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-          <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-        </svg>
-        Get My Generator Quote
+        <span id="submit-label">Get My Generator Quote</span>
+        <span id="submit-spinner" class="hidden">Sending…</span>
       </button>
 
       <p class="text-xs text-green-300/70 text-center">Free, no-obligation quote. We'll connect you with a vetted local installer within 24 hours.</p>
     </form>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('quote-form-el') as HTMLFormElement;
+  const submitBtn = document.getElementById('form-submit') as HTMLButtonElement;
+  const label = document.getElementById('submit-label') as HTMLElement;
+  const spinner = document.getElementById('submit-spinner') as HTMLElement;
+  const errorMsg = document.getElementById('form-error') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Basic client-side validation
+    const name = (form.querySelector('#name') as HTMLInputElement).value.trim();
+    const phone = (form.querySelector('#phone') as HTMLInputElement).value.trim();
+    const zip = (form.querySelector('#zip') as HTMLInputElement).value.trim();
+    const service = (form.querySelector('#service') as HTMLSelectElement).value;
+
+    if (!name || !phone || !zip || !service) {
+      errorMsg.textContent = 'Please fill in all required fields.';
+      errorMsg.classList.remove('hidden');
+      return;
+    }
+
+    // Loading state
+    submitBtn.disabled = true;
+    label.classList.add('hidden');
+    spinner.classList.remove('hidden');
+    errorMsg.classList.add('hidden');
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (response.ok) {
+        window.location.href = 'https://generatorgators.com/thank-you';
+      } else {
+        const data = await response.json();
+        const msg = data?.errors?.map((err: {message:string}) => err.message).join(', ') || 'Submission failed.';
+        errorMsg.textContent = msg;
+        errorMsg.classList.remove('hidden');
+        submitBtn.disabled = false;
+        label.classList.remove('hidden');
+        spinner.classList.add('hidden');
+      }
+    } catch {
+      errorMsg.textContent = '';
+      errorMsg.innerHTML = 'Something went wrong. Please try again or call us at <a href="tel:5165187178" class="underline">516-518-7178</a>.';
+      errorMsg.classList.remove('hidden');
+      submitBtn.disabled = false;
+      label.classList.remove('hidden');
+      spinner.classList.add('hidden');
+    }
+  });
+</script>
