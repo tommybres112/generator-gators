@@ -68,18 +68,14 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
       <script type="application/ld+json" set:html={JSON.stringify(Array.isArray(schema) ? schema : [schema])} />
     )}
 
-    <!-- Google Analytics GA4 Placeholder -->
-    <!-- Replace GA_MEASUREMENT_ID with your actual Google Analytics 4 measurement ID -->
-    <!-- Example: G-XXXXXXXXXX -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PNTV01KRSE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
+      gtag('config', 'G-PNTV01KRSE');
     </script>
-    -->
   </head>
   <body class="font-sans bg-white text-gray-900 antialiased">
     <Header />
