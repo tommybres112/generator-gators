@@ -9,8 +9,7 @@ const {
   subtitle = "Tell us about your home and we'll connect you with a trusted local installer.",
 } = Astro.props;
 
-const FORMSPREE_ID = 'YOUR_FORMSPREE_FORM_ID';
-const FORM_ACTION = `https://formspree.io/f/${FORMSPREE_ID}`;
+const FORM_ACTION = 'https://formspree.io/f/xnjgvpkv';
 ---
 
 <section class="py-24 px-4 bg-[#1a3a2a]" id="quote-form">
@@ -21,7 +20,8 @@ const FORM_ACTION = `https://formspree.io/f/${FORMSPREE_ID}`;
     </div>
 
     <form action={FORM_ACTION} method="POST" class="space-y-4" novalidate>
-      <input type="hidden" name="_next" value="https://www.generatorgators.com/thank-you" />
+      <input type="hidden" name="_next" value="https://generatorgators.com/thank-you" />
+      <input type="hidden" name="_subject" value="New Lead - Generator Gators" />
       <input type="text" name="_gotcha" style="display:none" />
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
